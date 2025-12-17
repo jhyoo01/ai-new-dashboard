@@ -34,6 +34,35 @@ class AINewsUpdater:
         }
         self.target_sources = ['theverge.com', 'techcrunch.com']  # 주요 출처
     
+    def translate_to_korean(self, text):
+        """Google Translate API를 사용한 한글 번역"""
+        if not text or len(text.strip()) == 0:
+            return text
+        
+        try:
+            # Google Translate 무료 API 사용
+            url = "https://translate.googleapis.com/translate_a/single"
+            params = {
+                'client': 'gtx',
+                'sl': 'en',  # source language: English
+                'tl': 'ko',  # target language: Korean
+                'dt': 't',
+                'q': text
+            }
+            
+            response = requests.get(url, params=params, timeout=5)
+            if response.status_code == 200:
+                result = response.json()
+                # 번역된 텍스트 추출
+                translated = ''.join([item[0] for item in result[0] if item[0]])
+                return translated
+            else:
+                print(f"    번역 실패: {response.status_code}")
+                return text
+        except Exception as e:
+            print(f"    번역 오류: {e}")
+            return text
+    
     def search_ai_news(self):
         """실제 AI 뉴스 검색"""
         print("🔍 실제 AI 뉴스 검색 중...")
@@ -125,15 +154,20 @@ class AINewsUpdater:
                     # 키워드 추출
                     keywords_list = self.extract_keywords(title, keyword)
                     
+                    # 한글 번역
+                    print(f"    번역 중: {title[:50]}...")
+                    title_ko = self.translate_to_korean(title)
+                    description_ko = self.translate_to_korean(description_clean) if description_clean else f"{title_ko}에 대한 최신 소식입니다."
+                    
                     news_items.append({
                         'id': len(self.news_data) + len(news_items) + 1,
-                        'title': title,
+                        'title': title_ko,  # 한글 제목
                         'source': source,
                         'category': category,
                         'date': datetime.now().strftime('%Y-%m-%d'),
                         'time': time_ago,
                         'importance': importance,
-                        'description': description_clean or f"{title}에 대한 최신 소식입니다.",
+                        'description': description_ko,  # 한글 설명
                         'link': link,
                         'keywords': keywords_list
                     })
@@ -141,6 +175,9 @@ class AINewsUpdater:
                     # max_items 도달 시 중단
                     if len(news_items) >= max_items:
                         break
+                    
+                    # 번역 API rate limit 방지
+                    time.sleep(0.5)
                     
                 except Exception as e:
                     print(f"    항목 처리 실패: {e}")
@@ -269,19 +306,19 @@ class AINewsUpdater:
                 'id': 1,
                 'title': 'OpenAI 최신 AI 모델 발표',
                 'source': 'TechCrunch',
-                'category': 'llm',
+                'category': 'chatgpt',
                 'date': datetime.now().strftime('%Y-%m-%d'),
                 'time': '2시간 전',
                 'importance': 9.5,
                 'description': 'OpenAI가 최신 AI 모델을 공개하며 업계에 새로운 기준을 제시했습니다.',
                 'link': 'https://www.google.com/search?q=OpenAI+latest+news',
-                'keywords': ['OpenAI', 'AI', 'LLM']
+                'keywords': ['OpenAI', 'AI', 'ChatGPT']
             },
             {
                 'id': 2,
                 'title': 'Google Gemini 주요 업데이트',
                 'source': 'The Verge',
-                'category': 'llm',
+                'category': 'gemini',
                 'date': datetime.now().strftime('%Y-%m-%d'),
                 'time': '4시간 전',
                 'importance': 8.8,
@@ -291,15 +328,15 @@ class AINewsUpdater:
             },
             {
                 'id': 3,
-                'title': 'Anthropic Claude 새로운 기능 추가',
+                'title': 'DeepSeek 새로운 모델 출시',
                 'source': 'Ars Technica',
-                'category': 'llm',
+                'category': 'deepseek',
                 'date': datetime.now().strftime('%Y-%m-%d'),
                 'time': '6시간 전',
                 'importance': 8.5,
-                'description': 'Anthropic이 Claude에 혁신적인 새 기능을 추가했습니다.',
-                'link': 'https://www.google.com/search?q=Anthropic+Claude+update',
-                'keywords': ['Claude', 'Anthropic', 'AI']
+                'description': 'DeepSeek이 혁신적인 새 모델을 공개했습니다.',
+                'link': 'https://www.google.com/search?q=DeepSeek+AI+model',
+                'keywords': ['DeepSeek', 'AI', 'LLM']
             }
         ]
     
