@@ -536,151 +536,1545 @@
     <script>
         // 뉴스 데이터
         const NEWS_DATA = [
-            {
-                id: 1,
-                title: 'OpenAI GPT-5.5, 멀티모달 추론 능력 획기적 개선',
-                source: 'TechCrunch',
-                category: 'llm',
-                date: '2025-12-17',
-                time: '2시간 전',
-                importance: 9.5,
-                description: 'OpenAI가 GPT-5.5를 공개하며, 이미지-텍스트-음성을 동시에 처리하는 진정한 멀티모달 추론 능력을 선보였습니다.',
-                link: '#',
-                keywords: ['GPT-5.5', 'OpenAI', '멀티모달']
-            },
-            {
-                id: 2,
-                title: 'DeepSeek R2, 오픈소스로 Claude 수준 달성',
-                source: '중앙일보',
-                category: 'research',
-                date: '2025-12-17',
-                time: '3시간 전',
-                importance: 9.2,
-                description: '중국 DeepSeek의 R2 모델이 완전 오픈소스임에도 Claude Sonnet 4급 성능을 보이며 업계에 충격을 주고 있습니다.',
-                link: '#',
-                keywords: ['DeepSeek', 'R2', '오픈소스']
-            },
-            {
-                id: 3,
-                title: 'Google Gemini 3.0, 실시간 비디오 이해 가능',
-                source: 'The Verge',
-                category: 'llm',
-                date: '2025-12-17',
-                time: '4시간 전',
-                importance: 8.8,
-                description: 'Google이 Gemini 3.0을 출시하며 실시간 비디오 스트림을 이해하고 대화하는 혁신적 기능을 공개했습니다.',
-                link: '#',
-                keywords: ['Gemini', 'Google', '비디오']
-            },
-            {
-                id: 4,
-                title: 'Anthropic Claude 4.5, 수학 올림피아드 금메달 수준',
-                source: 'Ars Technica',
-                category: 'llm',
-                date: '2025-12-17',
-                time: '5시간 전',
-                importance: 8.5,
-                description: 'Claude 4.5가 국제수학올림피아드(IMO) 수준의 문제를 풀어내며 수학적 추론 능력의 새 장을 열었습니다.',
-                link: '#',
-                keywords: ['Claude', 'Anthropic', '수학']
-            },
-            {
-                id: 5,
-                title: 'AI 에이전트, 전 세계 사무직 업무의 40% 자동화',
-                source: 'MIT Technology Review',
-                category: 'research',
-                date: '2025-12-17',
-                time: '6시간 전',
-                importance: 9.0,
-                description: '2025년 말 기준, AI 에이전트가 사무직 업무의 40%를 자율적으로 처리하며 노동 시장에 큰 변화를 일으키고 있습니다.',
-                link: '#',
-                keywords: ['AI 에이전트', '자동화', '노동시장']
-            },
-            {
-                id: 6,
-                title: 'Qwen 3.0, 한중일 언어 통합 모델로 주목',
-                source: '조선일보',
-                category: 'llm',
-                date: '2025-12-17',
-                time: '7시간 전',
-                importance: 7.8,
-                description: '알리바바의 Qwen 3.0이 한국어, 중국어, 일본어를 동등하게 처리하는 최초의 동아시아 특화 모델로 출시되었습니다.',
-                link: '#',
-                keywords: ['Qwen', 'Alibaba', '한중일']
-            },
-            {
-                id: 7,
-                title: '한국 AI 기본법 시행 1년, 스타트업 폭발적 성장',
-                source: 'Bloomberg',
-                category: 'industry',
-                date: '2025-12-17',
-                time: '8시간 전',
-                importance: 8.9,
-                description: '한국의 AI 기본법 시행 후 1년간 AI 스타트업 투자가 300% 증가하며 글로벌 AI 강국으로 부상하고 있습니다.',
-                link: '#',
-                keywords: ['한국', 'AI 기본법', '스타트업']
-            },
-            {
-                id: 8,
-                title: 'LG, 자체 LLM "엑사원" 상용화 성공',
-                source: '매일경제',
-                category: 'industry',
-                date: '2025-12-17',
-                time: '10시간 전',
-                importance: 8.7,
-                description: 'LG전자가 개발한 "엑사원" LLM이 가전제품과 완벽 통합되며 한국 기업 최초로 상용 LLM 시장에 진출했습니다.',
-                link: '#',
-                keywords: ['LG', '엑사원', 'LLM']
-            },
-            {
-                id: 9,
-                title: 'ChatGPT Pro, 월 3만원으로 무제한 사용 가능',
-                source: 'Forbes',
-                category: 'industry',
-                date: '2025-12-17',
-                time: '12시간 전',
-                importance: 8.3,
-                description: 'OpenAI가 ChatGPT Pro 요금제를 인하하며 월 3만원에 GPT-5.5를 무제한 사용할 수 있게 되었습니다.',
-                link: '#',
-                keywords: ['ChatGPT', '요금', 'Pro']
-            },
-            {
-                id: 10,
-                title: 'Kimi K3, 100만 토큰 컨텍스트 돌파',
-                source: 'VentureBeat',
-                category: 'llm',
-                date: '2025-12-17',
-                time: '14시간 전',
-                importance: 8.0,
-                description: 'Moonshot AI의 Kimi K3가 100만 토큰 컨텍스트를 지원하며 책 한 권을 통째로 분석할 수 있게 되었습니다.',
-                link: '#',
-                keywords: ['kimi-k2-thinking', 'Moonshot AI', '컨텍스트']
-            },
-            {
-                id: 11,
-                title: 'NVIDIA, AI 칩 시장 점유율 95% 기록',
-                source: 'Reuters',
-                category: 'industry',
-                date: '2025-12-16',
-                time: '1일 전',
-                importance: 8.2,
-                description: 'NVIDIA가 B100 칩 출시로 AI 칩 시장을 거의 독점하며 사상 최대 실적을 달성했습니다.',
-                link: '#',
-                keywords: ['NVIDIA', 'B100', 'AI칩']
-            },
-            {
-                id: 12,
-                title: 'AI 신약, 임상 3상 첫 통과로 제약업계 혁명',
-                source: 'Nature',
-                category: 'application',
-                date: '2025-12-16',
-                time: '1일 전',
-                importance: 9.1,
-                description: 'AI가 설계한 신약이 인류 역사상 처음으로 임상 3상을 통과하며 신약 개발의 패러다임이 완전히 바뀌고 있습니다.',
-                link: '#',
-                keywords: ['신약개발', 'AI', '임상시험']
-            }
-        ];
+        {
+                "id": 35,
+                "title": "Alibaba unveils major consumer AI upgrade with new Qwen chatbot - Reuters",
+                "source": "Reuters",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "28일 전",
+                "importance": 9.5,
+                "description": "Alibaba unveils major consumer AI upgrade with new Qwen chatbot  Reuters",
+                "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQeko4ZVR2WnduM0RUdDhPY1ptdW5SZ3NValNWaTJjN2hQWFFTcVctNTJBMzc4eDFPXzVla2tDMmsxUWRCYmxjRndBckhJOGNNeDJVT2hoNHRKa1RVaGN0d0t1QWV3QTRSVDN5WUtNX2owRV9Jckw2YTFGYTNTOGJKRFhBOGVQTG1FdXU5amdEay0zQ2dHNVpobE5sRnJQeGtlUl9sS28xSWs1eG5HT3BieXNjRXVWTDRyNmc?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 140,
+                "title": "Alibaba releases AI model it says surpasses DeepSeek - Reuters",
+                "source": "Reuters",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "321일 전",
+                "importance": 9.5,
+                "description": "Alibaba releases AI model it says surpasses DeepSeek  Reuters",
+                "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQWjlCUzNIOURFNWtpVDNLenVvRkRrU0pfUHlkY1NsTEp2WmJOSFlJRWJ1QjAyMXg2ckQtS1RGTVVZNV9pa01xdUVwVDR2azdaVWtVVko3TEZHMUdaRmdKYjlsMGdqNGhTY3FKa2RZbkdIdXhUcVZWODdYWXJkYmxpTjFTSV94MGRRUWhjU2JfRi1RQUVaU1BOelBHR2tLaWh4UmZCOHgzVUFMOVFMN0Zhd3RkSkNUd0ZTWXV6QkpYTWdYX0VwTlFF?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 5,
+                "title": "OpenAI Releases an Updated Version of ChatGPT Images - TipRanks",
+                "source": "TipRanks",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "6시간 전",
+                "importance": 9.3,
+                "description": "OpenAI Releases an Updated Version of ChatGPT Images  TipRanks",
+                "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPeHgwb2FidVQ3VGFPUmYzZmtxRUlOOUFpNG9CdGQyQ3dnWnk3dDRpdHJQLTNuR09QcThadWtVdF9xTnNpRFFGY1psbGJ6bnN5allJRmhObUhwLV9RbTdLc19XbmMtakJYRDhGQlBlWHR2OW9idzg3cHg3ZEkyaGQ0LXFtNU53a25WMkE?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "AI"
+                ]
+        },
+        {
+                "id": 45,
+                "title": "Alibaba-backed Moonshot releases its second AI update in four months as China’s AI race heats up - CNBC",
+                "source": "CNBC",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "40일 전",
+                "importance": 9.3,
+                "description": "Alibaba-backed Moonshot releases its second AI update in four months as China’s AI race heats up  CNBC",
+                "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNX3dkNmpaZDJzYmg2V1g5VWFSYXpqV016OU00N05VcUhiLXUxLXJ2dWROYWpIVWpYZmo4ajdiOFFRTnc4N2lwekRVb19aVGxDclczUEJSV1gwdlptYWJGSVQxZUNZazZQbmFKMlZnWXNaNzFUMEFOVnB4aEJoSjdMTmNMblNuZ1dOeUFhSmJBMGdMQUk5OW1EcFJFYlZfajlZ0gGmAUFVX3lxTE1HSDlrb2xndldHTTBJWU5DVlVfUEttMHdReDJ2bS0xTTcxdzd0Y01PVTVNNHhyUXpUdm1IUEQtTXBma1FQZ2NOS2hhNGVCRGZFM3Z6R1hrd00tMjZEZ2NDN3VqQTgwTnUyanBrRkhoTDVlRTRuSDlGUzlDYWRITlVhbXo3NWlCTEFLSmhwQl9IUWdUZWQ0WVkwQ1h6R0FoOVM2N3JZdEE?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "Moonshot",
+                        "AI"
+                ]
+        },
+        {
+                "id": 70,
+                "title": "Google Releases Updated Gemini Deep Research - AI Business",
+                "source": "AI Business",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 9.3,
+                "description": "Google Releases Updated Gemini Deep Research  AI Business",
+                "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQMjF1VGZjejE0NHNhallDTV9lb2RzU0JrQ1o4bDhRN2YwWXR6WHcxVEN5Tkg4dzE4bmRkZDc4WDV5NTFwRmptbHI5TVQ2czJSZ2lONndiczdLdVNOS244TGptX01HZzNhR3FsUTRWck1SYkkxeVFITWE0bXlwRjRfU3hSZWg?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 9,
+                "title": "OpenAI releases new image model as it races to outpace Google’s Nano Banana amid company code red - Fortune",
+                "source": "Fortune",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "11시간 전",
+                "importance": 8.5,
+                "description": "OpenAI releases new image model as it races to outpace Google’s Nano Banana amid company code red  Fortune",
+                "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNb3huTFViWGVuZU1kb1JCTTlWR2ppLUtuZHM1b3hnb2ZTdHA5YlpYb2lpekZ1azRUT3hwS2dsdU1IYzRRSHlRYXY0OVFsbHotYUtpUmdzaVl1ODhwa2JmdVJyTE83bmRXd3R2VDNQbW5sRWhtSXdNYVRZenJidVl0S2d3dmx3d3dPRV90V1BWLXN3WW9NRTM3eGRITzZIcC03RUtfZ2pUU0ZmMDVvV1YwS0FXRE0tenU0RndZaUJ0Sml4TU44V2Qw?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "Google"
+                ]
+        },
+        {
+                "id": 20,
+                "title": "Google just launched a new AI agent that runs your inbox: Here’s what CC actually does - Tom's Guide",
+                "source": "Tom's Guide",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "6시간 전",
+                "importance": 8.5,
+                "description": "Google just launched a new AI agent that runs your inbox: Here’s what CC actually does  Tom's Guide",
+                "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQY1FEc29zWi1uaXpWb1RGZlFzeGtjd250clJQOWx2TjR0N18xZHJfclBOUTN1Zm5PdlVWOGRONm13dW10X3BCaVI4UGRsclNhQzYyMV9BZ3dYZUVDcTY2VEd4UG9zTXJHQXkwWGh4YVo5aXVIZzRZQXJreC1JTTlKYWFuQVN4RVZrckFkUlgtQmdzc2dXalcxUmNGallpb3hERlhmVVU2cVhBNDlkYTE3Q29WWQ?oc=5",
+                "keywords": [
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 28,
+                "title": "DeepSeek AI Releases DeepSeekMath-V2: The Open Weights Maths Model That Scored 118/120 on Putnam 2024 - MarkTechPost",
+                "source": "MarkTechPost",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "18일 전",
+                "importance": 8.5,
+                "description": "DeepSeek AI Releases DeepSeekMath-V2: The Open Weights Maths Model That Scored 118/120 on Putnam 2024  MarkTechPost",
+                "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNZG0tcFU3cTZKNXRMQTFHbXVrcnlVVlhDMmVhLWNabkZwbmpCT2ZybUtFRWJfUm9rTEVpYWZWNzUtOHF1bmxuTVo0WGZrc3lUZ2Z0YkpBakUwSkM0R0xFcEd4STJ3X3RaTGRTOVNVcHE5SXRYNjVJTVpfSHllSzZrMnU1QjRHZEtvWHpfZTZMUU8yUXZoekN4aXNLRDFld0pxWWtrV0FlZFNKaF9FX0JZelduWEtVUnNETWtPQzY3Uko2T25IQ0VqdWh1OUpxR1hPSFBKYWdibEjSAd4BQVVfeXFMT3BTUll6WHJGZ09MUVI1MUtJTDVBVlMtcFhKREpqV1NpSGUtLU5mT1FMQ3VNRnZXOTF2cHFaWEVTRW5NSm81b3ZSSVQ0TjNPVC1zdzUwWklWSVppanJPZWhEaVNpU2hDdy1Hckx6dFZ0WHNJeHdlcWlZYldCMHNPdUNvMi1vSVhVODlFZkNPNGdaLVZ1eHBSVE1NNnA0cWh4LTVaTW95YkpTbzNxZzgwdmFfM1c2eXlJOGhGZERVeUtmbmM3T2lMaUtvX091dzhxekdENGw4YkNTRm92VXVB?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 34,
+                "title": "Alibaba Launches New Quark AI Glasses Series in China, Deeply Integrated with Qwen - Alizila",
+                "source": "Alizila",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "19일 전",
+                "importance": 8.5,
+                "description": "Alibaba Launches New Quark AI Glasses Series in China, Deeply Integrated with Qwen  Alizila",
+                "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQbTJWWHlhdm90RDFndnhjbXNxWFV6X3k2RWdkbE8wRi1fMnppbEJqV1pVcjd3akN5b3RGNVZ4cEhNQy1TbjVSSTkxcTBlcGRrRVJORndwSmYxUXVuRTZWdHlwX21Qc0ZhZ1lPcFJ6NHp4Qkwzc0tnWDh6ZnduMDJJd2pOQWhHa1JMbGRKQXN5OTg1UFl1UUExZmx1dk56ejFoUTlyZW9NNVlKUQ?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 48,
+                "title": "AI race heats up as Chinese start-up Moonshot launches Kimi K2 Thinking - Silicon Republic",
+                "source": "Silicon Republic",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "39일 전",
+                "importance": 8.5,
+                "description": "AI race heats up as Chinese start-up Moonshot launches Kimi K2 Thinking  Silicon Republic",
+                "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOakVLdnJFY1c5OEdoMjY4LVg5eTk0VzllRUM1aWZBMW5Ick1pb0NJMzVVckQwU25XMXg0UnJLRlNKWnFvMWljSHJrSG9wTUVLYTF6d3Fkd0NkeGxnLVZyUVo4cm1tZEJiVk1uTkh0b2ZaaHQyNU8tQW5yNmpzeDUyTDZKS3V6VFJ5QkFIVWw4RTlWTzRGV2xpc1pFdFpNTl9DNnc?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "Moonshot",
+                        "AI"
+                ]
+        },
+        {
+                "id": 60,
+                "title": "OpenAI releases new version of ChatGPT Images - Seeking Alpha",
+                "source": "Seeking Alpha",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "11시간 전",
+                "importance": 8.5,
+                "description": "OpenAI releases new version of ChatGPT Images  Seeking Alpha",
+                "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPOXJVOS1SSW9FLWVNQWRrY3JSUmtGUE5SaEhBNW15Z21YQWR4Y2RmUDBwYXlXR0xOMkxKV0pNTHE1WTdpb2tyN3kzUkhLQTVGNXgyMVIwRlRuX1hHYU9jaWJuZjJmcDMzeXdpcms3c1lCdl91dk8tZ3VSSWFWRVJHSDBOUzJ4VlBkSFBN?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "AI"
+                ]
+        },
+        {
+                "id": 78,
+                "title": "China's DeepSeek Releases New Open Source AI Model Amid Google's Gemini 3 Roll Out - Investor's Business Daily",
+                "source": "Investor's Business Daily",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "18일 전",
+                "importance": 8.5,
+                "description": "China's DeepSeek Releases New Open Source AI Model Amid Google's Gemini 3 Roll Out  Investor's Business Daily",
+                "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQR3dJa3cxX2ZqZFg4TWZ5Z3d4QXpFT3E4Zno4MTBJVUpKRXphcWZoRC16ZkdyR244dW5jUDJaOWxWd1hJTlRvNzFRRk5VeUtXZFRoWEdkdWhKaEc3OGdxWVNLdU1HNjNRWnRBUE1CS0FQdV9FZEIwWGwwcndMNVhYVGR3SFk4M0V0ZlozbTNwM2dRaHV0RjdrdTFpYVY0enN6eUUtMWE4aXA?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "Gemini",
+                        "Google"
+                ]
+        },
+        {
+                "id": 82,
+                "title": "Alibaba Qwen Wins “NeurIPS 2025 Best Paper Award” for Breakthrough in Attention Mechanisms - Alizila",
+                "source": "Alizila",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "15일 전",
+                "importance": 8.5,
+                "description": "Alibaba Qwen Wins “NeurIPS 2025 Best Paper Award” for Breakthrough in Attention Mechanisms  Alizila",
+                "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNT2NsMm9hWS1aZ214ZGliVWxja3pTeEcwQ19nVE5tVUVCUUJPZDBsdVRlMEZMNjV3WjQ5cTNxalg0aVVmd01TS3luWlpuTXhza0tudnVBN3dPWWNMQ3A5a3NNOVpVUWZ2NHExTXBFS1VCdFM4bGpFb2NISURoNGtlcjJTYjVVbzFoSzc1cjV3MmRndnFEMGFGeFR5YlhpMFphUm83bzNTYTFTeG14X3l1YVNJcw?oc=5",
+                "keywords": [
+                        "Qwen"
+                ]
+        },
+        {
+                "id": 86,
+                "title": "'Western Qwen': IBM wows with Granite 4 LLM launch and hybrid Mamba/Transformer architecture - VentureBeat",
+                "source": "VentureBeat",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "75일 전",
+                "importance": 8.5,
+                "description": "'Western Qwen': IBM wows with Granite 4 LLM launch and hybrid Mamba/Transformer architecture  VentureBeat",
+                "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOMkNNQXV6Nm5LOE93NHVweF9xS2xMM3hYeFhyeE1kYmc0VjVKMWI3d2UzblZEVWthekhrOFJWajRTcnY1aG0yNnlkdUg4em9PeG5iRXNBby1KcnRJM2EtVDlTQ3R4V1FuUzV4R09kd3ItbENROG80TVdMYzVvb2VmUU8xYTNwUHg4R3pTWUh1SERxVkUwbHYwSnc0bzBabFZPNzhOa2h3?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "LLM"
+                ]
+        },
+        {
+                "id": 99,
+                "title": "Moonshot launches open-source ‘Kimi K2 Thinking’ AI with a trillion parameters and reasoning capabilities - SiliconANGLE",
+                "source": "SiliconANGLE",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "39일 전",
+                "importance": 8.5,
+                "description": "Moonshot launches open-source ‘Kimi K2 Thinking’ AI with a trillion parameters and reasoning capabilities  SiliconANGLE",
+                "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQbGFYS3I0eVdVOTVhVjNMV1djZm5VMGRvVHhRR2k0Q1NhdVQtbTRVdE9NdkJJbkF1UXVucEFtYjVtMGtVbEtNVWZGcC1nbkJsaWFRTEp2VmtlampTUnBBUnY1OFpNOFk2eTdmOVZtZEhOY2xMdUJUUkc2eGlETGt4bDFBeVc3Y0gtLWR3QUEtbjVhd0VNLXNNay1QUWRXd1BZN2J4U1dyQ016cTV4NkZ1YllEaEQ4cFM0WTQ2QUFqZkhOcHpnWDc4Xw?oc=5",
+                "keywords": [
+                        "Kimi-K2",
+                        "Kimi",
+                        "Moonshot"
+                ]
+        },
+        {
+                "id": 107,
+                "title": "OpenAI launches new GPT Image 1.5 model optimized for image editing - SiliconANGLE",
+                "source": "SiliconANGLE",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "4시간 전",
+                "importance": 8.5,
+                "description": "OpenAI launches new GPT Image 1.5 model optimized for image editing  SiliconANGLE",
+                "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNZWp0ZC1zSjFuYm9qQmJLTS1mWmIxMkpNYXVuSVZ6RGtGVDY5anRHRGpaRmVkeTE4cGlWdk12ZnBPdUUwSW5YQWJaUjVfU3pZN3FPWUwyQ09UejBJX2hLLTZtUExQNE94b0dpaGJxcE43RjFuTnN0MmFCUUdTbjhmZmZ2amVQMGFVbERsaEo5RjVkd0hhYUEwalAzb09vejhMQ1E?oc=5",
+                "keywords": [
+                        "OpenAI",
+                        "AI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 108,
+                "title": "Sam Altman expects OpenAI to exit 'code red' by January after launch of GPT-5.2 model - CNBC",
+                "source": "CNBC",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "5일 전",
+                "importance": 8.5,
+                "description": "Sam Altman expects OpenAI to exit 'code red' by January after launch of GPT-5.2 model  CNBC",
+                "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOZ0tINkctcEJWMllGTkd2T2JxQ0pfeWZxNndfN04tRDRqbk90QmU0d1J0RFNDQzluQkU1Q1dEcVYtQWhoY3E5NUlUWHlMV252a24tYjVSVEE5bmFOZ2d3bFUwV0N4UkZlWFdRTC16NjJRSTFzR1JuV1l5eTgtSk9mRHZ3Z1B5UDNrY0U3SUo2LW5hUUVUaFFSYUlvT3A0WHlvbENxZ0tCYjRBV2JFbEHSAbMBQVVfeXFMTzBBbkMtQzlZRnBzNXcyNjhSNnYxUVRKamNDQVV2YXkzVE5PR2U2T2pDNjVZSldrZUZ6WV9qZlc1Y3dRZnVHbjBCdzBKNUc2MUtrMGRKWW4yYk5aLTQtMVlQb2xTS25aSVVpTXZoMU5JRlNKXzRMcFctSDN6SnpHS1FqcmExOXk5U3lYV3B0M2swaTVzVVkwbl9CcUMzanU0OHRsdTVHZE1XRUpmTGFfV0lVSlU?oc=5",
+                "keywords": [
+                        "OpenAI",
+                        "AI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 134,
+                "title": "NVIDIA AI Releases Canary-Qwen-2.5B: A State-of-the-Art ASR-LLM Hybrid Model with SoTA Performance on OpenASR Leaderboard - MarkTechPost",
+                "source": "MarkTechPost",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "152일 전",
+                "importance": 8.5,
+                "description": "NVIDIA AI Releases Canary-Qwen-2.5B: A State-of-the-Art ASR-LLM Hybrid Model with SoTA Performance on OpenASR Leaderboard  MarkTechPost",
+                "link": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQZzIxbHZTZDlTS0JQX2NwVHNPc1dQVFotdl9KbTY2VzlSaFRlUkUzbEFmb25oRDh5d1pxUGJNZFVZVVJ4VmpWbkRGOHVZSFdMRHJlOU9xLWE5WVBveFhNd2xrWEtqc3FVV2lwSjdqTGVxNC16RjNYc0t3TUpfWVY5UkkzTDZKN2JtanpRbUdsNlZYQ1ZsOEFkNFhmNWxWeXR5ZGZfb0JEY3dGV3FxTDZFUUcxc0FBajdVSklobDM2REUzN0FZRXZtZkJET0RmVmk2cTlpLUhQemNBSkstUzQ4SjBWZlhVT05mSVZHMDR4N0E1WFXSAfgBQVVfeXFMUGlhamtKLVdxdGJkSW9GTzF4eWNxaVJ4d1RlbGJZSmRPZENVbVMwX3hxREhoSXFnejhBZnZKODFPYXppSmdaZG9rcFlnelI0TlAzbGZwaXZWZ1ExdzNLTnk1TnE0U0JaQno1aTJSd1c0THh5Rm1aWGkwc3NXOVhXU21QYkU2a1JRLWx6a3lOaTB3NUZzRWRJUUVXVTJYM0pfVnRVeDFzTzFZYVRRZjAzRU0ta0ZfdWxVdjNpWjlzYU1RanBZdjFLLURRRGZSaUNqSDNhQUtFWS1iUUJBaGFPY2RxUFBxVVVJRkpCUmFuSXpzZWw3TkltbXU?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI",
+                        "LLM"
+                ]
+        },
+        {
+                "id": 136,
+                "title": "Qwen 2.5 | Alibaba’s AI Breakthrough in the Global AI Race - Simplilearn.com",
+                "source": "Simplilearn.com",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "180일 전",
+                "importance": 8.5,
+                "description": "Qwen 2.5 | Alibaba’s AI Breakthrough in the Global AI Race  Simplilearn.com",
+                "link": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE9xa2lWNDZIYkpaSC0zNDdBWjg4UFJnNzhkNUw5X1l2TjE0bWh4T0ZQLU56em9WcGUzeUdfX29hdnJrZmZ1RFp4WmNsQVZ6elhfdFhIWEFwbw?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 30,
+                "title": "China’s DeepSeek Uses Banned Nvidia Chips for AI Model, Report Says - Bloomberg.com",
+                "source": "Bloomberg.com",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "6일 전",
+                "importance": 8.0,
+                "description": "China’s DeepSeek Uses Banned Nvidia Chips for AI Model, Report Says  Bloomberg.com",
+                "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNVGE1bUVLeVk2TTRZMUI0Ukhoa2dpVW0yVl9kamVabkhPbGppWXlwUG4xbEx5LWhvT1hrdzg5T2VucHdWa3kwd1RLZzhUYXVaVkhOUWFsOUpXZVd6N080LUlhUS12ZzZxMXZDZnJYRWltbGpRTTRsb19jTEJCMGVoc19mbWs0R0JLSzhJRGpHYU42NU8wMFladGItLUNaN0xLbVVwYkgzcXUyS3JQTDBGMC1pSjV4Y1VJb0UzQ3NMaV9GSm40?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 36,
+                "title": "Alibaba’s Main AI App Debuts Strongly in Effort to Rival ChatGPT - Bloomberg.com",
+                "source": "Bloomberg.com",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "23일 전",
+                "importance": 8.0,
+                "description": "Alibaba’s Main AI App Debuts Strongly in Effort to Rival ChatGPT  Bloomberg.com",
+                "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQVUxaa1A1M2hxNl9vUm11RXRyNExoaTREaTdYZzlIdU9ieWZSZzFvZVZ3ZEUwMk93cnZ2X2FzSzBLWHhUUzhkTEtIRGxVU3gwelRmRTNGUWNNZUxzbGFzSWktLWkxWjE3Q2xnSGwwekdwejRyb25xMWhoeDh3aEFYcVh6RE1JdnFuNFlINTh4TGREMFQwbGdjUGI1Y09QN3V1Xzh0R01NVm55N0tYNktSbGxUT3YyZw?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "ChatGPT",
+                        "AI"
+                ]
+        },
+        {
+                "id": 46,
+                "title": "‘Another DeepSeek moment’: Chinese AI model Kimi K2 stirs excitement - Nature",
+                "source": "Nature",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "153일 전",
+                "importance": 8.0,
+                "description": "‘Another DeepSeek moment’: Chinese AI model Kimi K2 stirs excitement  Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1OTnJiVFBGaHJlbHQxVm93Ukg5VnFxQ2lGMzdLOU04YWxuUlVqeC1nQTN0MUw3Sk9Bcng2aDE1aE5NZUh0X0dLR0M5WUFFYzAtNHhOamYyUWY2WEM2T0xF?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 75,
+                "title": "Quantum physicists have shrunk and “de-censored” DeepSeek R1 - MIT Technology Review",
+                "source": "MIT Technology Review",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "27일 전",
+                "importance": 8.0,
+                "description": "Quantum physicists have shrunk and “de-censored” DeepSeek R1  MIT Technology Review",
+                "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQRmlFaGMxYTJKeDNvSHd5a0Fwc1FsOHZIYk4wNjk2LURrSVdQbk13RWJ4amtCM3owQU96aFhzOWE3NHNKT0c4Sjk0aGhYWUlVc1E2cHFtdUlyNnlLRXJRWnhWcllMMTNIVmhQa19YRnZfR1BYbzNwbVRocDd6eFZaQ0lHelZOXzRaX1dLa09UOGxyd2lId2tDeC01WVdOdmx4QVVaRnFoSdIBrAFBVV95cUxQSlJWWHJDMEpfNDZGbjZRakFWUGI4WVdCLVBNUi1QNmI2WXg3MmhhbjJ3SG1NWnAzNEJ0dE9JU0plblFuUGMyTnhvSUxCR2Y4VWg3VjcyRjljZllOaVBKemxxUkNIbnAxdGQtUkx5NmhUYjduaUgwZl9IMm9ONG55Y01tRW5TbEgwX2Q5NUhta2p5OHBuaXFPQ1ZzUGMweU5jUEROMXpGYVU5UGpn?oc=5",
+                "keywords": [
+                        "DeepSeek"
+                ]
+        },
+        {
+                "id": 80,
+                "title": "DeepSeek Debuts New AI Models to Rival Google and OpenAI - Bloomberg.com",
+                "source": "Bloomberg.com",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "15일 전",
+                "importance": 8.0,
+                "description": "DeepSeek Debuts New AI Models to Rival Google and OpenAI  Bloomberg.com",
+                "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNejdzUVh0WUJDNjZHSDl4TFh4djQwWVdrU2NMM1lvUHBJR0xVNW1hTmZlQlVnYVpodTFKRGMwWVlFNG5kTVYxUDJUR3d0Qlp3THRqbGxjZkgwa1RPS2Q0YTZUcTJNRXNXZ3NlbGxPT0JJelpiejVTOXZSZF8wY1FjRkVNYUZpdzhMMldISkFsY1lrem5uZkZwaHJiV1R4VGdWWUc5UkctX3RmOVE?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "OpenAI",
+                        "Google"
+                ]
+        },
+        {
+                "id": 90,
+                "title": "Benchmarking large language models GPT-4o, llama 3.1, and qwen 2.5 for cancer genetic variant classification - Nature",
+                "source": "Nature",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "215일 전",
+                "importance": 8.0,
+                "description": "Benchmarking large language models GPT-4o, llama 3.1, and qwen 2.5 for cancer genetic variant classification  Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9GZVNjQWZDUGs1clktRXVNOExkRy1xYl9FVU9lek1ma1AzR0k2WE1KM1BkWmlhN0p5SDc2N0ptSVpTenFYYlZJUVpuTE9QMVlhSjZ4dDJia3pIbk43NzIw?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 115,
+                "title": "Google wants its AI assistant CC to replace your morning scroll - The Verge",
+                "source": "The Verge",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "11시간 전",
+                "importance": 8.0,
+                "description": "Google wants its AI assistant CC to replace your morning scroll  The Verge",
+                "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPb3ZUaDFJOHEwSy1yeGxId0t4TWd2Y01DOW5uY1FpXzRPMjEyd2phT09nNXNuRTZjN2tFVm9WajJrcXZjVG5SSkMtUlplWlVOSEJsYlpGaTdDN3pWV25FeUx3RGRiQVBxcGZTZ2h5cnBjcjJFTEZwT0p3SElPVnZwQ3dDMzlsZw?oc=5",
+                "keywords": [
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 129,
+                "title": "Comparing ChatGPT-3.5, Gemini 2.0, and DeepSeek V3 for pediatric pneumonia learning in medical students - Nature",
+                "source": "Nature",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "28일 전",
+                "importance": 8.0,
+                "description": "Comparing ChatGPT-3.5, Gemini 2.0, and DeepSeek V3 for pediatric pneumonia learning in medical students  Nature",
+                "link": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE4ySlRzWGUtTXBqbWFFR3BERUtjaVQ4c2VzSlhCR1RsZ0xwOE1JTi1meVJLNWV0Tk9pUW9jbm1WT0o4Z2U5TnVzUVVaWXgzTTlGVHpiRUVXVERhYVhOU1U4?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "ChatGPT",
+                        "Gemini"
+                ]
+        },
+        {
+                "id": 61,
+                "title": "Google Gemini may streamline your creations with a design update - Android Police",
+                "source": "Android Police",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "16시간 전",
+                "importance": 7.8,
+                "description": "Google Gemini may streamline your creations with a design update  Android Police",
+                "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPQloxZE5UdzRnUVRmZTcyeEMwTDBZNzlMd2laVU1ZRlUwVzRvNUdIendYdWVicndDN1dUeXE1RUdIajdpUFhoYUxGcnFVS0tqSEVxLXVNYVhlLVg4M2JkNk9UY1g1Nms4RWgzREc0UHV5VGRuMi1YQ01pX2I0ejdpS2RoTlZxaGRaZVFBUDY0X2I?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google"
+                ]
+        },
+        {
+                "id": 62,
+                "title": "Google Gemini Update: Image Markup Tools for Precise AI Analysis - WebProNews",
+                "source": "WebProNews",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.8,
+                "description": "Google Gemini Update: Image Markup Tools for Precise AI Analysis  WebProNews",
+                "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQV2dtLU1rLXRGcnJ4ZTM5dE14OE9JeWViQzIyNDZzZEtjLXM3a0YxZ0RIM3cweGZTUlUtazBYTkF4RlVtTDd0c3lYVUJvdVpIampGMmZhT182eHpubnlyQTFfUmh2ZmkzNkVfZUZFZ2NrTmlmMlhXMFJDR04yYnF1aTBldmhRZGgxT0lxcEFmS0Fyc3pXdXc?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 64,
+                "title": "OpenAI updates ChatGPT after \"Code Red\" scramble - Axios",
+                "source": "Axios",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "5일 전",
+                "importance": 7.8,
+                "description": "OpenAI updates ChatGPT after \"Code Red\" scramble  Axios",
+                "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPZmFQVkRFUVptNlFiWXBZVTFUVVFpUkc0MU16eTRjYzR3U0Z3NUhOdmlfUThFZjBaX2t3WUFjRzM5MFJ5MnlnLTg2QWx5U21vanVIazg0b0NlM3c0VDBhYzNmRE9fUWltUXkzeldwNVdGcm9yV3N4ZU13bTluc1VIejhR?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "ChatGPT",
+                        "OpenAI"
+                ]
+        },
+        {
+                "id": 65,
+                "title": "Google just gave Android Auto its most significant update yet - and we tested it on the road - ZDNET",
+                "source": "ZDNET",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "17일 전",
+                "importance": 7.8,
+                "description": "Google just gave Android Auto its most significant update yet - and we tested it on the road  ZDNET",
+                "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQODZOQm12SGtXVm9fQjlmZFVRWjZBZ09TYmN5R3hLWDhmd0JVbUgxRV94RzhEbkwzbjFqWlphYmJEdkI1Q2lvZXZqR1pGYzh3SW1XOVF3Z0FqbFFNeFRiZG1JS2ZtMm8wbVRwN01zSWxoSHFSRkVtX3N4NkVNOXlrOGpXcXZ1S25jTXRvOVZxa21VN1JIV1QySmotcU5SX1hZMm9PYlNJaURMTEQwM3BDZndsMC1lMzl4allQeGtB?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google"
+                ]
+        },
+        {
+                "id": 66,
+                "title": "Google Updates Search Live With Gemini Model Upgrade - Search Engine Journal",
+                "source": "Search Engine Journal",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "4일 전",
+                "importance": 7.8,
+                "description": "Google Updates Search Live With Gemini Model Upgrade  Search Engine Journal",
+                "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQQmdVSjhfRldRQU81cGRuOWx0cFhWWjAzbFJNWkEyQ0trV1pWLS1kYW9VZDNIT01MaGpaY20wdWV5cUVFaTF6SzhLcG5iTktDcHN5MlVYUnFsUXY4TjM2dVJBVGRiLWhRbDQ2Rzc4dzJaTDNDd2EyWTZrUlZtSlV4NlRkTEpQZkpwU1RIR2dJem9VTkE1bUZoX1VmVno?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google"
+                ]
+        },
+        {
+                "id": 68,
+                "title": "Gemini for Home update delivers a nasty surprise - Android Police",
+                "source": "Android Police",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "6시간 전",
+                "importance": 7.8,
+                "description": "Gemini for Home update delivers a nasty surprise  Android Police",
+                "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1UQkp1OUVLS044bXlPSmRYQmw5NEZfUW1jUWx5UHI0YXUtVUFmekVMSkpTeHd3cWNPX3FVLVU4U1Rhcnp3LWdQc19KdWZTTWRVd1BpeExZSHptY1YtcjVpcW1CM2NMcVE3dlFGcG1OalIyZXprbWt6aVV3dG8?oc=5",
+                "keywords": [
+                        "Gemini"
+                ]
+        },
+        {
+                "id": 117,
+                "title": "Google updates AI Mode homepage with new model switcher, greeting - 9to5Google",
+                "source": "9to5Google",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "12시간 전",
+                "importance": 7.8,
+                "description": "Google updates AI Mode homepage with new model switcher, greeting  9to5Google",
+                "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1fdnRmTC1jRm1DZk1LSWx2bzNHZUtpS0RpamZyTnVmVlFZNXhqd1Ewc2RKRHNSZ19DWnJCaEh0VDJZNkNRS3g4THlrZFdtOTBfRHhTWFF6S0tMV2hPVkZXZ3NiODBCZjFOWHc?oc=5",
+                "keywords": [
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 120,
+                "title": "Google Labs Announces CC, a New AI Experiment for Email - Thurrott.com",
+                "source": "Thurrott.com",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "8시간 전",
+                "importance": 7.8,
+                "description": "Google Labs Announces CC, a New AI Experiment for Email  Thurrott.com",
+                "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNOG9fdnlVZzVLNDNtSW9RV0N0ZUZfS3hYZnRCcnBJRWMwRGVmTnBjX2NfbTJ2US1Jei1ReFdpcXlDOGtyYTBHT2dBUGdJYXhfSVU3Um05RFZFZUhrcno4MW1NTEJtbkxwWm5Hc1k5X0pTZEx6X3l2S0VkQzJuZ3QyTXI5RFV5WExzYzd4alkxNlpDTU1EeTgzRmxpTzZhOURUZE9UbHFfU3diTzJz?oc=5",
+                "keywords": [
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 1,
+                "title": "The new ChatGPT Images is here - OpenAI",
+                "source": "OpenAI",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "12시간 전",
+                "importance": 7.0,
+                "description": "The new ChatGPT Images is here  OpenAIOpenAI’s ChatGPT Updated to Make Images Better and Faster  Bloomberg.comApple Music is coming to ChatGPT, OpenAI announces  9to5MacOpenAI just launched a Nano Ban...",
+                "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE55MUY0elAtYS01UG1PWXVkU19WRm9jUjVKYkg5U2NuZ3VwcDZzRTJWb1pTZEVOcmtDN1hjTFktWTVaTFlFX2M5eGVHc3ktYjQyWWcwQnRZV0h4VVk5cVhGX0NB?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "AI"
+                ]
+        },
+        {
+                "id": 2,
+                "title": "OpenAI Rolls Back ChatGPT’s Model Router System for Most Users - WIRED",
+                "source": "WIRED",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "12시간 전",
+                "importance": 7.0,
+                "description": "OpenAI Rolls Back ChatGPT’s Model Router System for Most Users  WIRED",
+                "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBpbmZVdW1XZWRiOVYzZzlwOEp6cTJUOEk5OFZfQ1ZIUF95ell2T25XRzBnZjJEOXR2WmVYVmhVMjI3U3ZRT3lYNVFkSE5EbWlmWFJBQk9EX3VUeUdBampvV2dPbHdZLXhOR3BsMHNHdGVMcU5fN19F?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "AI"
+                ]
+        },
+        {
+                "id": 3,
+                "title": "OpenAI's answer to Google's viral Nano Banana Pro image model is here - Business Insider",
+                "source": "Business Insider",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "10시간 전",
+                "importance": 7.0,
+                "description": "OpenAI's answer to Google's viral Nano Banana Pro image model is here  Business Insider",
+                "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE56T3J0QWI5eXp4Qmpvc3lJNU5xM2ZGN2Jsck9uUUJsWl9rWkRQWGwyWWhpcWd3a1IyTENFVWY2QVFFMjdjU3p3X0VsN1lrTlA4X3NzOWpVTDNxR2JUVnYtQ19TQ1JVUGd5S04wZ05MUnJZcHdyXzN6U3F0VQ?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "Google"
+                ]
+        },
+        {
+                "id": 4,
+                "title": "OpenAI's GPT Image 1.5 challenges Google at enterprise-grade visuals - VentureBeat",
+                "source": "VentureBeat",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "11시간 전",
+                "importance": 7.0,
+                "description": "OpenAI's GPT Image 1.5 challenges Google at enterprise-grade visuals  VentureBeat",
+                "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOckFuZlZSZk02UFR2SkU1eEdOX2VMR25vWk9tOGk5a2VXNTNMUHY5bFZTQ2NHM0x1ckFFcnVGRzI4LUFPMWlVZjBpNzc0Y3BWWHFVRGh6akpmS2pZX09Jbl9Ub2pEcThJc2ZwYmJLQjdUc1Z0TkRIRFk4aldYSjE5SUdGbDNMQ2VfSktnbC11NWFDYjkzUWZnQml3?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "Google"
+                ]
+        },
+        {
+                "id": 6,
+                "title": "Number of ChatGPT Users (January 2026) - Exploding Topics",
+                "source": "Exploding Topics",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "3일 전",
+                "importance": 7.0,
+                "description": "Number of ChatGPT Users (January 2026)  Exploding Topics",
+                "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1XeXN2SHhyRDh3X3pwTlB4VUJDMkxGZ0lKWENzakFtaWY2WmlZQ2FqdlFtZUZ5X1dHNExSQmx1V2tzTE93N08xWjZwbXdCQ2VlZnkxeTAzd29Sdw?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 7,
+                "title": "OpenAI's new ChatGPT image model matches Google's Nano Banana Pro on complex prompts - the-decoder.com",
+                "source": "the-decoder.com",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "9시간 전",
+                "importance": 7.0,
+                "description": "OpenAI's new ChatGPT image model matches Google's Nano Banana Pro on complex prompts  the-decoder.com",
+                "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPbW5WdnNrdTRnalIzTGFkNDVRWjI5V2o4d2JqTVF1NG5nd2JUWlg2UUs5SHBSamNNNG9MYWh0OFFmTm9PN1hFR0hXSG53Z2hvNnhaOFpDQjctcjl3N2FuZ3kyTG5oQ0dsR0RrVTZIUml5cUl0WFRWampTYWtQanV2NUxMOUxvaVU0U1lkaTZMYzVuemNCQm5UakZ3TWd0QnItUVZmWVBGQVBJVWc?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "Google"
+                ]
+        },
+        {
+                "id": 8,
+                "title": "OpenAI Rolls Out New ChatGPT Images - Thurrott.com",
+                "source": "Thurrott.com",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "10시간 전",
+                "importance": 7.0,
+                "description": "OpenAI Rolls Out New ChatGPT Images  Thurrott.com",
+                "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNcTg2eUs2Tks2MDFGY3NtOVhKQkllVFVFV3Vab3FoYmQyc0R4LUlZLWFjTUgwNTlXdmlTV3hjbnB3Wl9uaHVsTW1RdjZaQUhUREt2NjlCZ0pFMkM3RUJzUjNNMGFDVTVfV0FVcFFkLXNXUTNGNlM4dFJlNlcxbE9mcnNkckNYaFJyWXc?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "AI"
+                ]
+        },
+        {
+                "id": 10,
+                "title": "OpenAI Defaults Free Users to Cheapest Model to Cut Back on Costs - Gizmodo",
+                "source": "Gizmodo",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "8시간 전",
+                "importance": 7.0,
+                "description": "OpenAI Defaults Free Users to Cheapest Model to Cut Back on Costs  Gizmodo",
+                "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQSUdYcnUwY0FhRk53dHhDTjZSY0t2Tm83bXF0NVRwUnlyQ29hejBXcjkycnJwOHJDTlVhWnBscFdCVnctQWRVWExuOTZIZzRPWU9uRUlwczRnNG9RSGh3c0VmLV9XZVMxRmlENVc1SDRacVRoUVpZaHFFTzF1Z0JCb0M1WWNFM2dYRjlBVHRfMTF2eVRuTV9SUUpfS18?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "OpenAI",
+                        "AI"
+                ]
+        },
+        {
+                "id": 11,
+                "title": "I Tried Google Maps' New Gemini Feature, and It Was a Surprisingly Helpful AI Assistant - CNET",
+                "source": "CNET",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "I Tried Google Maps' New Gemini Feature, and It Was a Surprisingly Helpful AI Assistant  CNET",
+                "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNa1VaRy1sdHZINXZuTnI2NUVhalBaQUdySHFBanlRT2s5d2sxUmswU2pXNmQ1a3dEeTRlUFJrZkl0dW5yQU9heVlJa3NDaWZoZ0g2cjZhZENodk00S0p2VlpybFAzY1p1cl9nSVBOMXg2TDgyYU9uTzEzeHZseGtVRDdJWjNvZU00bVp6R3ZqWWw2ZzFPUjlWZUJDekJ5M1I5M2l1YUNieEc2ZmZfVWFxY2RtQV9BQUhhQkNV?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini",
+                        "AI"
+                ]
+        },
+        {
+                "id": 12,
+                "title": "Help boost your daily productivity with CC, a new experimental AI agent from Google Labs. - blog.google",
+                "source": "blog.google",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "11시간 전",
+                "importance": 7.0,
+                "description": "Help boost your daily productivity with CC, a new experimental AI agent from Google Labs.  blog.google",
+                "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5NdXZ4RWpkRG5kbWFxbTA0UjlrRVpyX3NvOWRXYjFMbWVuNmczU2Zfd0E1VHlJOEFEdHlvbndCN3ZjaXFKaDY5NzhYRTUwMFBRRWVxM1ozMmhvQk1xV0lnbFloSjcydw?oc=5",
+                "keywords": [
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 13,
+                "title": "A key Google AI feature is no longer free on Gemini for Home, and users aren't happy - Mashable",
+                "source": "Mashable",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "A key Google AI feature is no longer free on Gemini for Home, and users aren't happy  Mashable",
+                "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE1kMk1FRnpSR3pxdUhVSW9oVTNqVTM0TFlmS21uenhvWDBUNkhrS2xNQlJXVnU0Z1VxeUZVdlJwRk9hS1BHemtnQjlZSDFMWXRzNGFnaUlwaEl3NmJ1Z0luOWllZVFRWF9UaUVkSTIxYW5vd01qNWNaSHRYSQ?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini",
+                        "AI"
+                ]
+        },
+        {
+                "id": 14,
+                "title": "Sergey Brin, who came back to Google to work on Gemini, says staying retired would have been a 'big mistake' - Business Insider",
+                "source": "Business Insider",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Sergey Brin, who came back to Google to work on Gemini, says staying retired would have been a 'big mistake'  Business Insider",
+                "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYnphZ2gzeW9XVkFTWlkxU0xtUUtRNTIycWw0d0JZaVkxQk9waHBaX3psUjlpbnk4SWpmQmRDQW1FZmpKSVpxbjlMeEtMY2ZXdF9aWEhGYzJIdlEzNjFkMkRZX2Z6OEhmc3gxR1daZFdpX1loVzdVay05M0JnTVNJZjNDdFdDdGJNUm1xai1UbV9lS1h3RjR6T1RXS3NvMnYxdW5Z?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini"
+                ]
+        },
+        {
+                "id": 15,
+                "title": "Gemini provides automated feedback for theoretical computer scientists at STOC 2026 - Google Research",
+                "source": "Google Research",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Gemini provides automated feedback for theoretical computer scientists at STOC 2026  Google Research",
+                "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNdDk0SmNPYkRtNWZHdTNGblNtbk9vOXBjbUxWTS11c1BlQS1EdlJxeFBKeWdTdU80ZG45MGdnN3Y2MGxoUFVJRGhxU24zT0I2T0FBb0FkejczNzlkRkVnVXR4ZVdXNXZUSXdGQmV5Y05jS3hsSXo1OFBmTDExV2RXbW9JM2tuVlV5emtTRHVMSnZ1V2JPQm9EU1F4RjBBWUs4MV9kTW1KM1c1Q2V6R0dEdFBrTQ?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini"
+                ]
+        },
+        {
+                "id": 16,
+                "title": "You can now build AI-powered mini apps directly from Gemini - Android Authority",
+                "source": "Android Authority",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1시간 전",
+                "importance": 7.0,
+                "description": "You can now build AI-powered mini apps directly from Gemini  Android Authority",
+                "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1hdVpuYWVFQ1R6MnFZZ043YXlLS25sN1RjZkdxRVM5VkxvamlaOXp0cEJTSlY3U1Q3ellsUjZTOWdDY1JWTEJ2QVdJRE4tbEY0TC1xcDd3RHQ2di1Zc2h4ckNzNG5SSDFRaV81RWVmdnY?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini",
+                        "AI"
+                ]
+        },
+        {
+                "id": 17,
+                "title": "Google's upgraded Gemini 2.5 Flash Native Audio model makes AI more conversational - Android Central",
+                "source": "Android Central",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Google's upgraded Gemini 2.5 Flash Native Audio model makes AI more conversational  Android Central",
+                "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOX2pQeDZ0dlo0dlhlNWpWWm1tS3dQZnNQUnpsVnBUNzNvQlJnNEJ5R25kSFA3RlNyTS04QWR3OFhyWVp2MjFFWTFBOUh5WkJZaVFnbVhhZTd0dDJvNTZRUzBnNDdTY21kaElpc254TU96U3BacXZCTlFkZ3pYQW5lY18tUEhBMThPUDR6eUhYRmVvTzhMNkJVYi00QWEtRGp3aktmVWVtNEM3aXVoNnJ6Q0hWSnlwdmxjRFQ1RXZTWDY2aE4wbV9DQg?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini",
+                        "AI"
+                ]
+        },
+        {
+                "id": 18,
+                "title": "Nifty Gemini-Powered CC Feature Released by Google Labs - Droid Life",
+                "source": "Droid Life",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "7시간 전",
+                "importance": 7.0,
+                "description": "Nifty Gemini-Powered CC Feature Released by Google Labs  Droid Life",
+                "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1UNUQ2SGI0VWl2YU5OczV2R3hBT1BOemVUbGUtTE5JS0NVYXN1SVo0U1plOERraXpCQVVkbmRYYnZhczhwckI3MjRUVnc1TUFVdk1zNlVna2JKSUZNVVpsbXg3M2Q1dnZBM3BfUw?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini"
+                ]
+        },
+        {
+                "id": 19,
+                "title": "Google's new Gemini feature will help you plan your day with emails - How-To Geek",
+                "source": "How-To Geek",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "10시간 전",
+                "importance": 7.0,
+                "description": "Google's new Gemini feature will help you plan your day with emails  How-To Geek",
+                "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQVnNsWWYxU0tuV05GS3BscHJ5WFZYMUZXaEtnSkZONTRoV21BbE9GcU4weW9DcmRsaE9BV0E5RnRBRzExaWRzMFpKOTBoZ2tBRnluU1hvMnN0bXFfWUZmZDR4VU40ck05bEhNVzBKTy1tYTNRbUZnZldOelkxQmpmNWZCOE9JRDdTV3k2OFIxMHozeHpOUFRuWA?oc=5",
+                "keywords": [
+                        "Google",
+                        "Gemini",
+                        "AI"
+                ]
+        },
+        {
+                "id": 21,
+                "title": "Beyond DeepSeek: China's Diverse Open-Weight AI Ecosystem and Its Policy Implications - Stanford HAI",
+                "source": "Stanford HAI",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "16시간 전",
+                "importance": 7.0,
+                "description": "Beyond DeepSeek: China's Diverse Open-Weight AI Ecosystem and Its Policy Implications  Stanford HAI",
+                "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQZ0hQRmUyZTBfTDllbWlYQV9HclRlaUNrWjdlMXM5dk1qQ3FPbVVVMTFkUnlOTUR0enBncV9JS2tsanJScXFFNWJEczZ2bGhWNUlsN0tMN0t3RlBYUDdER2Y0Q2IxVGkxN2M4b21yVmxPOFlXeXBLT19NdS1ZQWNZWFJBSTBfOWNCSG9PZjJwVUFMYkxNUUJpNHAzdkJFdWZRMEkxdzQ0TUQtWHBwZzc2QV92ME93UQ?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 22,
+                "title": "China’s Qwen and DeepSeek edge out US AI models in Christian values benchmark - South China Morning Post",
+                "source": "South China Morning Post",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "6시간 전",
+                "importance": 7.0,
+                "description": "China’s Qwen and DeepSeek edge out US AI models in Christian values benchmark  South China Morning Post",
+                "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQWl9QbkhWWFdreGlIaklBbWNwVWhaTDI0bzZYWDJIbmVzNFRORFQ4SnNWeGlFUW5IaXRheV8zRmNTMG8xeEZuc3V2b0xSb1JsRGxCSVpxa3g5ME9jSHhkOFB5LVBzU1JRUGFpQmluZlNLbVRZYU9YdHRWd1JRZFBQZlAzeUxxMUlaZzBtLVB6MGlVeTlLaTZQSm5FVG5MOXgzQVNmS0xtVHdxQ0lPdkZPeWlVNXV6UdIBtgFBVV95cUxOeV9KZWhRSFRBcTBBTWpwenRRN2RsQlZHakhfMEY1eFRka25sNk1Nck91ajJEbmNWNGlsRTN2U0NmSWsyQzByQnlPYWdfcEpySHZqeXNtY0xnMzJZbzZVN0FjRlFCbjRMdUJVNXpHTGdEWWVpYmZWbHFMZENpd1VEYVV1dUVMTHNtbVFSbXp0QkdVOFdOTVJoNFlrM0c1TGhOVjFuc1FlcWE4NXk2c1Rray1rR1pnQQ?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 23,
+                "title": "Nvidia responds to report claiming China's DeepSeek that wiped billions from US stock market in January 2 - Times of India",
+                "source": "Times of India",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "15시간 전",
+                "importance": 7.0,
+                "description": "Nvidia responds to report claiming China's DeepSeek that wiped billions from US stock market in January 2  Times of India",
+                "link": "https://news.google.com/rss/articles/CBMiwAJBVV95cUxNS2YwaEgyRlpsXzJSMDJwTmlRa2VKZnk3TlJYdVhyVVBvc2FXZVViVlF6VHRWY0RqZk1POHpKek9fWlc0Q29KeHhMX0RWeE51bTBwdUR3dUdaaHdnZDRwRlllb0dWeTVodVVWYUYwLWNEdzlubzRpemRiOTlZd2pwNmtqakU1QWF3Y0txRTFRTHE5MHVjWGJRbmU0YWxQemx3NVlEeVhocUNLSWJBSTF4OHZFYXhIX09YOFZqelUxbEJ3VG9jckFpQVlDWWlEaFRYUHdCQXNnN1kzdEVnbWhVQWhTcTJaZmtvTk1NYjd1SEE4Rm9sci1QYXhDVGVsdFdUSm01TmpROVBnSTdBYzhhR3pDQ2l3VkQ2UEN1RVctMEFaZXUwT0V2UXdsQjBIZUI0RDZSMUtIeEFBTXgyVExfZNIBxgJBVV95cUxOYnUxdnZCUUItVExkODRnbzZmTEtSQUptMldfekdwQ0ZNX093QzZSR05ETFotc18wNGFyN1I0Ym03c1JSaWtfUkFLdHdiZEdwQjFXN2tZTDFkcDZhNWkzX1YyNnY1b3kyRHhZeDNfMzZWRGlHTEkwU1ZkNGFfNWZXbHJwUHU4elNaTFZWRE1pVVFUVU03UURwS1VBbzBCMFJfODlTLWNDQi00aEUtWS1kbldDckw2bU1Qd3J5WWJFRl9iSk9lU25OX1lPNmpsamZUb3RLbmlOTk5FV0RfVmpacjdZcHpjLVIwc0h1SURpSTBEbjNQc3JxWTV3QlFDSTZ0MFJYRU9UOFlzXzg1X09fc3ZLZVcyYjlQZEQxQXo0TjRNTnBMaDV5ZjNjcExJdHMyYlJ6eS14ejdsY1pGa3BYSkpuU1Z5QQ?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 24,
+                "title": "The best Chinese open-weight models — and the strongest US rivals - understandingai.org",
+                "source": "understandingai.org",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "The best Chinese open-weight models — and the strongest US rivals  understandingai.org",
+                "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5aRUUtRDNyd05CNlRPU1JDN2lPcEU3RkZVOTU0UkN4T1Vzb0hvMjhWTGJLUzlwcW83dWxsY1pVTFlHNjlnLUt1N0JJVnB1dGtqdTQxNjd1R2U4OW14RWhUVVZkVlFUVDExWWx5QjJ2U1ZFSlVKS0s5RA?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 25,
+                "title": "Kimi developer Moonshot shows China’s growing AI depth: US government report - South China Morning Post",
+                "source": "South China Morning Post",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Kimi developer Moonshot shows China’s growing AI depth: US government report  South China Morning Post",
+                "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPRVBXaXJLYzVCVGk1dEMxeU5tTDctNnEzSVpDUXg1aFFTTUx3RDlCX1plM01Ba25KcWpsel9vcGZxNElCOWdoSjJZN3lDYmE2RnhPTzVzcEZkc19yRjFFZmxDeGRlTkppaFNXd200TWxEREdYWG1fb2ppQXBFcENXM1MxUDNVcG1neEdrcUpHaEhENV8xTkh0clNXdVhrSHk5Y0hKZTVsb2lOd3dLVVV2dnI5UXVEZjRXei0zeFBLVncxU03SAcMBQVVfeXFMTzBPN0ttZDNNQWp4ZjA5amVZZE1VTnRadkI1SVhNQ3Jtc0xEbjRzbVkzeWVlTDJBLU96OWRXNWIyZ1NmdWYyWjdCWDR1MHpvOHhaeldNZEZPMTdNRzlVTjY1ZG9vemlpXzlHamFFN3IyVGNHMHlJWVZGVDdNbjl2Nm9yRzBPOXI2Qk1BQmJJeTVXUTdTbE5pUjFYUENLLVNjNE9ucGYzOE5Tc2RnTVFFdUZYZUxDZ2xTREFscElCTktrY3I4?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "Kimi",
+                        "Moonshot"
+                ]
+        },
+        {
+                "id": 26,
+                "title": "A look under the hood of DeepSeek’s AI models doesn’t provide all the answers - Science News",
+                "source": "Science News",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "7일 전",
+                "importance": 7.0,
+                "description": "A look under the hood of DeepSeek’s AI models doesn’t provide all the answers  Science News",
+                "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE1mVDRIY0dGNGJsSWFTSDZ4TWNvTThYY2hySUI3V1FydTEtUGFOb2V3eXpFVENQTGZPWklsODBVTmptbE9WZkJmZEVaa0RUd2p3Rm0zdlJWNUtGYlQwbHpya2FqTk1JZHVodjFveWRCZlJsbzNELTBxVkdB?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 27,
+                "title": "DeepSeek AI projects price scenarios for XRP, Solana, Dogecoin - crypto.news",
+                "source": "crypto.news",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "4일 전",
+                "importance": 7.0,
+                "description": "DeepSeek AI projects price scenarios for XRP, Solana, Dogecoin  crypto.news",
+                "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5IakxrOUh2RGlfdUc3bFV3OFI0Y2tJZjhYYTRHVG80bE0wU2VZOUM0cnBSaFY3eXlRNW9yQlVxQUU1d1ZsZFJXdjhna1g2ZlFMU1JhS3V3czgxZUJWRWFKQUNJNFZqampQSEN5NHl1NlZxb25LNXBlNFVscWJUdw?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 29,
+                "title": "DeepSeek just dropped two insanely powerful AI models that rival GPT-5 and they're totally free - VentureBeat",
+                "source": "VentureBeat",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "15일 전",
+                "importance": 7.0,
+                "description": "DeepSeek just dropped two insanely powerful AI models that rival GPT-5 and they're totally free  VentureBeat",
+                "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPU1FNNlBYZ0RObnUyWGNSdzhDRHh3THFRVm5CbS03aWVYaDVPTTlzUnJSMmstMjZNdDk2OWZMM0xfRFRqWjVBa2pwSjE5Wm51b0FfanYxc0xVSjFSaUxRWElia2d3UlZPMWFlOGg4R3pWY2hOeXI3Y3VmczJFbXh1V1VzRG1RaVVZdWRZWWxtZE40Z3doeHZmOXMzc1ZjZnVlalZn?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 31,
+                "title": "Alibaba Group expands AI push as Qwen becomes most-used open model - Yahoo Finance",
+                "source": "Yahoo Finance",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Alibaba Group expands AI push as Qwen becomes most-used open model  Yahoo Finance",
+                "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNaDBxWmo0SnRiLUUxX3Y3TVFNN1lqUDlyU2NYYWR4aDFFclNzUkhMS2dsSWtTb2hSOERNcEVwZDFwb1JLRGFlNXNpVDg1cjhmTVo3aUxDWkFKZ09CVXcwUDZUUXFBNjQ3aHR1WjZYLW90STFYUVBid1pvd2dVWnFDRA?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 32,
+                "title": "Alibaba (BABA) Doubles Down on AI as Qwen Becomes World’s Most-Used Open Model - TipRanks",
+                "source": "TipRanks",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Alibaba (BABA) Doubles Down on AI as Qwen Becomes World’s Most-Used Open Model  TipRanks",
+                "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPWmczMHRiUGpiR3FNLWNGekFsc29vd2dZV1R0NlM1cUlOTlFCWFQ5RVZvTUd5eU1jT1RCV2JGZHRTWE96NkVDMlM3dHFoZlhMX3o5QTFnYy1lRFV4Rk5TU0xoRWRvWmQ4akZTOE9NVEJxUjJkZC1uTjc0b3hSLVJsb3V3dE4tWWhDNzNrSXFIbldRNzhHQ0lFcXZXcGcwQXlYRzJVVDhVdnI?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 33,
+                "title": "Meta sees role reversal as it adopts Alibaba’s Qwen to train AI models - South China Morning Post",
+                "source": "South China Morning Post",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "4일 전",
+                "importance": 7.0,
+                "description": "Meta sees role reversal as it adopts Alibaba’s Qwen to train AI models  South China Morning Post",
+                "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPWTZlbzdsZVk2aExzVEkwNVpkbjcwWXRVdFdfX3AxdG91c0J6aTRnVEhFVmd2aTFsNW1PNEhEUjNSNklwNFhtM2JLNTNlMlJ0eXRSRGQwMzBWOGJOcnB0cEk4TVplZUw4NHltQmdsZG9SSTN1MXZRM0lUcW9MWEVVU0g5dzdxQWhIbXprWldYMkRnRXlDblVSejY4LWpmcmRwb1FVY28zcVVyejJzdmwyVllCOXFUc2s5aVUwQtIBvAFBVV95cUxPR0x3dVp1N1N1WXBMczVkZDNmZXlpRGpZZlpUVC11TzdONmtGYnVVYTlxRjRPQTh0TzEySnJQV3N6SDV6b05ZZnZqOWotRENqUjJjTy1SbWlqLWo5VjhvbThjcFJrQkM0czFtSEFhN0tvTHJjdlctVVRodk56dnIxMWo1Njc5ZUZEV0RQMmN6RFZOSll2WEcyY09WOG5MUUp2a0VtSGRvbWFuNHh2Z09UcC1kY0hfQU5uTEE3aA?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 37,
+                "title": "Alibaba creates new unit to push consumer use of its Qwen AI models - South China Morning Post",
+                "source": "South China Morning Post",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "7일 전",
+                "importance": 7.0,
+                "description": "Alibaba creates new unit to push consumer use of its Qwen AI models  South China Morning Post",
+                "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNeVd6cnVRZFhZZzFJSlItajNoR0tjaHp3ZEhXbWJseHp3WnFLNlpRVGxuMG42SlFwOThXc3QwZFV1ZTB0U2dOOHVZM2p2X051N2MwU0ItcjRJUVZPcnhsY21JZGZ2REFsbllpYWFlS2VTVmhKQjNhcld2ckxUVk84VmZPbE1iLWZoSlg4T0VKSUlQVFlLT2FsZmoxMklhNVROQXRobXFZVTNPczFDLTJzV0pR0gGyAUFVX3lxTE5GWU4zRzNOazRTS2ZWdjQ3OXVJeUY2TWhiajFLTzloWklrWGdVVV80WGJSeGZ2Z0c2Y0Z4blJrMDExNVAxdXcyT2lPNUtkcjdNOGZfT3hxT25kekRxVVJCZVRRZy1IcEJhQ1Z5SHFOREpVUnZjczZySWFKR0tBeXZjRnd4cGwzNndtdE1fUGVUYlMtZWRBRHkydFpjc2QzSGZLZVBPbm14NjRFejk2LU13SEE?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 38,
+                "title": "Alibaba’s Qwen App Tops Global AI App Growth Ranking with 149% MAU Surge - Alizila",
+                "source": "Alizila",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "13일 전",
+                "importance": 7.0,
+                "description": "Alibaba’s Qwen App Tops Global AI App Growth Ranking with 149% MAU Surge  Alizila",
+                "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPa09PV3FuUkFaX1Bpc05vS0RXVFFlYmF3MzhiOHN5eU5Wb21uUVlTWHZCcGVSREFJLVA1b3hQT1RsLWpYZkZvZks2emEzcU83MGVPb3BaZnZ5WlFNNlFUcUgxeVpoTVNJWGFyVTc5c3l4TF9SUVhjS3ZwYzktSFRkQm55Nk5temFKalJF?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 39,
+                "title": "AI race: Meta reportedly uses Alibaba’s Qwen for its ‘Avocado’ model - South China Morning Post",
+                "source": "South China Morning Post",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "5일 전",
+                "importance": 7.0,
+                "description": "AI race: Meta reportedly uses Alibaba’s Qwen for its ‘Avocado’ model  South China Morning Post",
+                "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOX3NsNUVhbVkwRm5kazFmVHR1a3g4UmlWYzVCaXJTMVo0LVlDeUNpNzRVMGNMNUUyUXZNYk1yX2NFLVFuQW5jWTVHUzV6TFZzR3NFaFg4cVg0UVluOWItUk5laVdxY1FNc0JRc1VNZ2xBa2VhZ2wtMThELTR1VkdqRVJXMFlXcmc4THFqTTF5U3Z3SlpfSmFSSkhEVHd3SXBkTEZfSVY4SGctRExWTmJPUGNySkQyYi1ZYjgwV2RB0gG-AUFVX3lxTE12M0FvVUVxYlYwakFnM25lWXhUWHE4OFEwcDdqMUItajJLWEpNNFhUcXdibHJwUWNGWkJWMVZEa1FUU0RhRlVxNmVVUlFudnVDWTBuOGR0OVRvOUpLcWEwVGY1TU1NaXhNNXVzZWpKbkZnVXlxb2VRLTV2djhUenRKZ1pCd21Ua0pqNTRrdXJzYnNKZ0tDTV9HejJxN0NkWTJVcVFMS2x5ZFdlQWpCWHI0MmVISEgyMWdHVGxQZGc?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 42,
+                "title": "U.S. Agency Names MoonShot AI Top Chinese Model - 조선일보",
+                "source": "조선일보",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "23시간 전",
+                "importance": 7.0,
+                "description": "U.S. Agency Names MoonShot AI Top Chinese Model  조선일보",
+                "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdWRmRFIxYm54M2hCdmxoWFZIOFVjZXpOTXgzUld4ck9ZZmZXMllfQzZoT21wTVk3c3ViQ3FESkppeE54MkRrbEJmTnk0VGhrVmVFZFNkMk9peFB6YkZzdlRTUXlqU08tbTY4V204WUhRME5XVGloblhDY1RUMnBGSlFYaUFwOVNi?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "Moonshot",
+                        "AI"
+                ]
+        },
+        {
+                "id": 43,
+                "title": "CAISI Evaluation of Kimi K2 Thinking - National Institute of Standards and Technology (.gov)",
+                "source": "National Institute of Standards and Technology (.gov)",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "4일 전",
+                "importance": 7.0,
+                "description": "CAISI Evaluation of Kimi K2 Thinking  National Institute of Standards and Technology (.gov)",
+                "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQaFhZUGctbGVYTVpndWdPUElBSUU5WWROdUg2LUQ2YXI1QXo1MTRlck5OT0pIS3FlVDZ6MTFSN1hCY0hudXpVMWFrVGljWXBmVFNhNXhkdFpzNFRjMWxCelQ3Ull5bFBIMVRzSUtJeGlZTjNhVGI1cC1ZOTRzWEdPbzNSZkExQQ?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "AI"
+                ]
+        },
+        {
+                "id": 44,
+                "title": "Moonshot's open source Kimi K2 Thinking outperforms GPT-5, Claude Sonnet 4.5 - VentureBeat",
+                "source": "VentureBeat",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "40일 전",
+                "importance": 7.0,
+                "description": "Moonshot's open source Kimi K2 Thinking outperforms GPT-5, Claude Sonnet 4.5  VentureBeat",
+                "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQVUtHLU8tMGduQW5PaExYZk9COUVGbUxXaGlfMkdTRjd3WmNUMklNcVFqYkU2dkRFblVWSXlVU05JYmJIM1BWTDBxN055VlUySjh1MzBKS3hFQ3ZlMVNYVmZ6Vm1wcldPUUJPS0lNWG9RSE43VGVvYlQwZzhGRHFfT1dHcnUwbXQya09WeWVNTkVDaHk4VWEtNHdBNjlNVzJHck9v?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "Moonshot",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 47,
+                "title": "5 Thoughts on Kimi K2 Thinking - Interconnects | Nathan Lambert",
+                "source": "Interconnects | Nathan Lambert",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "40일 전",
+                "importance": 7.0,
+                "description": "5 Thoughts on Kimi K2 Thinking  Interconnects | Nathan Lambert",
+                "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5nV1VITFdtQ21VUkpNTy1MOHNWUjYtTkJkVC1NWGdXWUY0NUQzalktZ1lDRUUzNkM4YmRLYmVhLWdmSUQwU2dPYnNWVFd4N0NobUVQZG0xaU9TSXhwdWUyMjl3bzlfa2w3b2VNRVFB?oc=5",
+                "keywords": [
+                        "Kimi"
+                ]
+        },
+        {
+                "id": 49,
+                "title": "Moonshot AI’s CEO Says Reported USD4.6 Million Cost of Training Kimi K2 ‘Isn't Official’ - Yicai Global",
+                "source": "Yicai Global",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "34일 전",
+                "importance": 7.0,
+                "description": "Moonshot AI’s CEO Says Reported USD4.6 Million Cost of Training Kimi K2 ‘Isn't Official’  Yicai Global",
+                "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZ01DTnlqR0E4SjNwQW53aUpqRDBXSmxjVTNWaV9FUlY3UEhtWFJ5eEZmV013Zlp0SHpDcEZTaG11NjJJUkhGUjk0NnR3NjJSLUVYUGk3R09DX0pXV3pWb19CMS00dVNnM2lUZUtkOVVxUzhWN3hfYXpJMmY1SEd6ZDJIZXVwM3FJS1REcGZuMWxLLW51RExleTY2dExGelZkTzNXdjl6S0VybG1VaDJHOWo2Y3doOVFhRlF3?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "Moonshot",
+                        "AI"
+                ]
+        },
+        {
+                "id": 50,
+                "title": "China’s Moonshot AI Raising Fresh Funds That Could Value It at About $4 Billion - The Wall Street Journal",
+                "source": "The Wall Street Journal",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "25일 전",
+                "importance": 7.0,
+                "description": "China’s Moonshot AI Raising Fresh Funds That Could Value It at About $4 Billion  The Wall Street Journal",
+                "link": "https://news.google.com/rss/articles/CBMiugNBVV95cUxNUXNXTVF4amFVQ2JMSmUxektYdmR1SHNhQkxrclFWcGxFeTVsUkRFTEs4Y1RkNUloc0wwS1NMaVJ0aFdXOXFHcnV2TVBqcHBrUkdLU2QtdS1YRExuV0pnNjlrd2d1dTI1VDZBR01OLTQySUJKUGUyTkJhYllvZVMtcFlOQXFlUVhCU0ZvUVJPSEZVeTk1NUF6Q3lha2pJOWxnWnkxM1F1SFhQS3VrODZFRkp5NEFkZWphUEY1Z0pNYzZkbVNIdVFQY1UyUmJUU0pZZnlqd0Zmb1lyUWlnQkQ5UENuQ2dmbjhxUGJPUEF5TE5DQ0V6QTdlcXN4NWpwWGtYbmdKT1dJeEpodzZpYURFRVJZZkxEMWNQZ2trelFpYXpuOTBxWGlaZWo0bkNKWnduLXpKcWQ3RkhUV2VFdjFZbGVVZ09sRVFIZ2NRRGd0SEJ4YnpmVVU5YnBsYzB4TVZ2cEktbXVoMTIyVU1mUXdhTW1wNkZSWUVRWnROUmRmRVZPT2JEVVJTTS1EM3Z6bzFoY1BtNEJDUVI1T0hLOEZ2U3VJUURweHZyTlhDLWMxeHpPb01wVnBCUmtR?oc=5",
+                "keywords": [
+                        "Kimi",
+                        "Moonshot",
+                        "AI"
+                ]
+        },
+        {
+                "id": 53,
+                "title": "Texas doctors warn against using ChatGPT as a self-diagnostic tool - FOX 7 Austin",
+                "source": "FOX 7 Austin",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "3시간 전",
+                "importance": 7.0,
+                "description": "Texas doctors warn against using ChatGPT as a self-diagnostic tool  FOX 7 Austin",
+                "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNSXpxb1I2ajFUa2p2QUFKVUc0Sk0zYno2S2t2bFZ1OXUwWWFMeURsb2dodkhVQkNaY3Ewd3pHRDk4UlBjMmhZSnFUWkVoY2pvdEMtZmZHNUhzaUJQM3I0SEN5LXZBY2xTVF9qc0VWTzF2TjBLMF9kcV9iLU9zMnZaanRyTjkzMHB5ZEJUb2ZEY3VIZ9IBlwFBVV95cUxNZWVUazA0YV83SU9COTZZSnIxU1hjbnVpQVhsTlJ6Wjd6aGJtRWxta3A5SnZmN0J3d1RYdDE2bEhWSEF6eDI2TFBPS2pkQnh5ZllJVTBWallyRjFoQXVZTnBTZlZrZmJIV2ZKRFVENHFqNkJBSEJIbGljTlZYQXBtMWR6ejFRZGxBVEhYNldudTI0RW9yelZZ?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "AI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 54,
+                "title": "ChatGPT Consent Forms Show Potential, With Oversight - Medscape",
+                "source": "Medscape",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "19시간 전",
+                "importance": 7.0,
+                "description": "ChatGPT Consent Forms Show Potential, With Oversight  Medscape",
+                "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQbmxlbXUxZEhjOFZ6alFvSjh4aGZjMHBUWmxHeElNd1A1dGdpRzRNcHRDcnJEcXZBRlFLQzRSN0JVNUliMUkzQ3JJX1NZa1czeTlWOTR1YjlQaW9vdzhOYXlHelpwQ2p4bko0UzExa21ZUW9TQ20zZUZXQ051cHBXOVlVdE81OFFRQmNJdW80VzEwUjU2NWhZX3lfUkhveXVPRDU3OWt6YTFtVmc?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 55,
+                "title": "ChatGPT's rivals, Kwai's quiet rise: the top Internet services of 2025 - The Cloudflare Blog",
+                "source": "The Cloudflare Blog",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "ChatGPT's rivals, Kwai's quiet rise: the top Internet services of 2025  The Cloudflare Blog",
+                "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5kRmdDV1l3UVFnVjB3Y2xuaEszd1dELUZrV0VXRVRlUWtPdHh5ZlFmMWd5YlU3Ui1xd2RVcXhhX0ktNy00ZWxWSkJaeUdZVmptUkI0ZjIwdTkxMWkzbnAzaG5ES2hZRkk0cEJ6eG5oUldTVU9oblg0WUgzd2c?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "AI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 56,
+                "title": "ChatGPT Predicts Bitcoin Closes 2025 at $86K While Analysts Target $111K: Who’s Right? - Yahoo Finance",
+                "source": "Yahoo Finance",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "13시간 전",
+                "importance": 7.0,
+                "description": "ChatGPT Predicts Bitcoin Closes 2025 at $86K While Analysts Target $111K: Who’s Right?  Yahoo Finance",
+                "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOWVlBeWlOX3IxalE2V2dBOGxwWmRmTmJwSjNMSWZEUTZZekl5SFBxMjN1aFZWX2M0YWY0UXJjVWM3MVM0STQ4RUVRTFlUZVA2UWFjamF5MTdhNFZfNHlvNkdoSjV2bm15M0tOLURkNlZha3Q2NExlOG80djFNUTB6SEkwMVNNWXlyeUE?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 57,
+                "title": "Open AI, Microsoft sued over ChatGPT's alleged role in fueling man's \"paranoid delusions\" before murder-suicide in Connecticut - CBS News",
+                "source": "CBS News",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "5일 전",
+                "importance": 7.0,
+                "description": "Open AI, Microsoft sued over ChatGPT's alleged role in fueling man's \"paranoid delusions\" before murder-suicide in Connecticut  CBS News",
+                "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOcElvVWE3R0JZbnN3bFNFUndkNlNHcjFScHhEeWxLZE9mVFZfelJmQkExSE9TMnZTNzFFWTB0WURUZFRvS3c0U3ZLelp5NzIyMTZyeDhESFkzRlFzUGpWX2I1WkY0WklVMzFoUlROenNhU0pkaHoyd201VjEybWNEVHJYZmo2R0xXVF9nUXhSY0vSAZYBQVVfeXFMTjV1RndlSzkxRExXQTExa3g1S2ptZTJQMy1lUWJzdC03UHZtdVp6bE9Eek94WnpsUFhBOGFIRjcxcHRjTm5xbGtSSHdCc1NyOG5UbXdLU3lFQmt1eWd0REhWeVRXS2VKRDBjemx3eDN2ZHRTRG91OWx2R1p2WWJianVWS2xQQ0Z1Q1d2X185SldlVFRqWGx3?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "AI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 58,
+                "title": "ChatGPT, can you think for me? - The Oak Leaf",
+                "source": "The Oak Leaf",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "10시간 전",
+                "importance": 7.0,
+                "description": "ChatGPT, can you think for me?  The Oak Leaf",
+                "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOc1pHeHpOOTZIYTZKdktlVDVOSW9ZSkRnZFhyRWItUUhqUzBnWmpYX09XVXVWdWdCQU5pOVl6TEJEREFha2djQm1LX0prTkJlbVdubElvOTJBVEROcEtzNC1WdTlhR0NfZndUQ3NJX29XUUxhc2dmaHpjaEU0aHNDWFN6dGd1TWs?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 59,
+                "title": "10 Easy Ways to Make Money With ChatGPT (No Tech Skills Needed) - Investopedia",
+                "source": "Investopedia",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "10 Easy Ways to Make Money With ChatGPT (No Tech Skills Needed)  Investopedia",
+                "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPWFcxcC0tcVB4aWtjblVYUVYwUl9MX2dqVEo0LUt6OGk0N1lzbGdQMDk5cG5wRGdsbGRzZjNkV3VPdldaY2lyRFhFc0VjYTFwUURBMERKYW0wWFllc3FEbUVBRWczS0JER2xEY3gwYXdYbjhFSC1ua2gxUURKaEdGN3pHZzFkQWgwc29KNFNXT1VMX2lBM3dySG4tYlk3clNx?oc=5",
+                "keywords": [
+                        "ChatGPT",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 63,
+                "title": "Improved Gemini audio models for powerful voice interactions - blog.google",
+                "source": "blog.google",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "4일 전",
+                "importance": 7.0,
+                "description": "Improved Gemini audio models for powerful voice interactions  blog.google",
+                "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9sTTV2ZkFKMVJxRFJxWDJxWWxMNkJEeEI1Y3FwRGNaaUhKbi1qUDVsYUluOVhkYTdxTEVNOGlzbWVGNEt2TTdGQ2xKVzJBZ0s0UzZRUkhheUhBYnZJejJ0akZ3S2l2dEtBQXFQT05GY2g?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google"
+                ]
+        },
+        {
+                "id": 67,
+                "title": "Google Maps navigation gets a powerful boost with Gemini - blog.google",
+                "source": "blog.google",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "41일 전",
+                "importance": 7.0,
+                "description": "Google Maps navigation gets a powerful boost with Gemini  blog.google",
+                "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPS1VRRXg3bDF0X19ESXFFZXFncHJDYUxybDQ3OTROZGswN0NnSXE0dktGOXVoX3gwZE5HNnNmNzlDWFR2UGd5UU5qU2I1bkNKbTNBMU1mQkhzSHJURUJMRUczRkUtWmJ6TFBqbDN2WW9KQ0Y2TENscjhaVUhzaXFCUQ?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google"
+                ]
+        },
+        {
+                "id": 69,
+                "title": "Google Rolls Out Gemini 2.5 Flash Native Audio for Natural Voice Interactions - eWeek",
+                "source": "eWeek",
+                "category": "gemini",
+                "date": "2025-12-17",
+                "time": "14시간 전",
+                "importance": 7.0,
+                "description": "Google Rolls Out Gemini 2.5 Flash Native Audio for Natural Voice Interactions  eWeek",
+                "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9zeER1Q0haS21tLWp4Z0ZaSmdhYXc2MEZNSi1mYnc5TG1CdUhFX2ktaS1NaHVvdy1OeFR6Y0FzVmpVMUFMYW5iN2cwZTJUU1pyZXJld0E1OFo4bzdnOTlRNE9HWHEwR3I5RGEwUml0VWpYTEhpN3RYbTlNaw?oc=5",
+                "keywords": [
+                        "Gemini",
+                        "Google"
+                ]
+        },
+        {
+                "id": 71,
+                "title": "DeepSeek is Using Banned Nvidia Chips in Race to Build Next Model - The Information",
+                "source": "The Information",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "6일 전",
+                "importance": 7.0,
+                "description": "DeepSeek is Using Banned Nvidia Chips in Race to Build Next Model  The Information",
+                "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQZDdHMTRVdWVwV2JVYVZ5QVo2VXdsY0xPYlNFWF9xdUtka0lQT0VkN21mdEtuQzNibjJTT3BhUUxaUmU4aUtzTDFDdkFxcjJial9nckRvN2cya2x6V0c2QVlzZU85OEpuWXJabFR6SklsTTVfdW9qMnJmNkJKdEM2cEN0WFRkaEFIZUc2dkRyTm0zZ21YX0ZNcndmTFA?oc=5",
+                "keywords": [
+                        "DeepSeek"
+                ]
+        },
+        {
+                "id": 73,
+                "title": "China’s DeepSeek Uses Banned Nvidia Chips for AI Model, Report Says - Yahoo Finance",
+                "source": "Yahoo Finance",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "6일 전",
+                "importance": 7.0,
+                "description": "China’s DeepSeek Uses Banned Nvidia Chips for AI Model, Report Says  Yahoo Finance",
+                "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQb19IdV82czcyTmxMaDdXSXhRNTdIUG1Gb3BNb3d3cVc5cHl0WFJ5TnZGaWdYMGszUTNHN3hjVDEyenVVeXhESUhfYkJKTGNsT0pBNThkam9xaVNLOGxKdUhTYXotSnZFNDROZWdDT04yWEZFa1lBeXlfemZpRlNnSVlHTXVjQQ?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 76,
+                "title": "China’s DeepSeek challenges Google DeepMind with new AI model - South China Morning Post",
+                "source": "South China Morning Post",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "14일 전",
+                "importance": 7.0,
+                "description": "China’s DeepSeek challenges Google DeepMind with new AI model  South China Morning Post",
+                "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQMFFHMWc2TVgxZnRDc1owQ2pZUjNzZHQzeDBNN1k1bEMtNVRsek82bkFob3ctNFl6Y2l5dVUtd3BaZm9UTnVlVzlRY2haNFN4QnBMTUMzc2VOdkNoaGduYThZcXVjOE4xRUprU3UyZHl1ZkJNcHlCQkpISjVkSnUzRFk0aVQ5MV9MUXRWNDRGQkU5Y2hyRm5ZRVBCQjZkcGlLbGdGcW04blRERGhnS3VvQkZuenZTY1dk0gG4AUFVX3lxTE9nT3dUWWpkZ0RxTkFrUzd3Vjl1dHZpNlhuUnZGY2pyVEpsT1pVT0Q4MTFfVFMwRDMwa1pOZnpYZ1dVUzhMLXlmTE5VV0UtT3VxWm9VVUxvejJkYU1qLVRRZEs1VWt0elR3M2RjNUNwUXliM3p6TVdBNDVCanZ5VFpVYjJ3bXo2eGRKSVE2ai1vTzZMblZZV3g5dUV1VVlBQkROUnJIZjVCbkFncmVHamd6dURhbEUwNHM?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "Google",
+                        "AI"
+                ]
+        },
+        {
+                "id": 77,
+                "title": "Chinese DeepSeek-R1 AI Generates Insecure Code When Prompts Mention Tibet or Uyghurs - The Hacker News",
+                "source": "The Hacker News",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "22일 전",
+                "importance": 7.0,
+                "description": "Chinese DeepSeek-R1 AI Generates Insecure Code When Prompts Mention Tibet or Uyghurs  The Hacker News",
+                "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQWmRaWVo1NFVaVVcxaUhyVlRwcm5yeno2R0FFeEQwNVBlcFdXVkVGdjA4RklieS1kb1ExS1RvaE9seFJWS0phcVhzSXFjUkl1WERROTB2aVV6QnZVSHdjZ0RvZ3VVa1M1OE9wczdIVlZITXYtbzh2MFdMQXhtZnhacEkyVQ?oc=5",
+                "keywords": [
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 81,
+                "title": "NeurIPS 2025 Best Paper Review: Qwen’s Systematic Exploration of Attention Gating - Towards Data Science",
+                "source": "Towards Data Science",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "3일 전",
+                "importance": 7.0,
+                "description": "NeurIPS 2025 Best Paper Review: Qwen’s Systematic Exploration of Attention Gating  Towards Data Science",
+                "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPU29ubzNQUm0zTWo5RFdLeWRSSDdlYnFEeVgxX1FqaGdTbGoyZDVzZFBmVEZ1Q2J0akQxZGwzMTVackJXbHNtaUlsaFRyRDNibjlTSzV1Nk9rT2s2VFMzeWl1Q2hTYlJtMGt3ZGZvYW1STV9ybENQV2NxeUh1aTQxZVhnWURHOERrUFpoUF9LaUYwV3hiNVRCNlBRWjR2aFNaTXp0amFTYTY2dFdIM1lsaw?oc=5",
+                "keywords": [
+                        "Qwen"
+                ]
+        },
+        {
+                "id": 83,
+                "title": "Meta's next AI model, 'Avocado,' signals shift to closed development - digitimes",
+                "source": "digitimes",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Meta's next AI model, 'Avocado,' signals shift to closed development  digitimes",
+                "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNU0RuU1BXZGdFY1NsUVh1RFI2VXgyaWNVTWNPOV9tQ1RhR2RqX1JWWndxaTVheVpaZzhoLXdYMUNJRThHT0p5TTl0WTVUUVprN0lZQmp4RjVzQzBtVW5CUjFyNnJmTGpRYlE1S2gzTk5ZUzk1ZmpzYXkxcEdGYUF0R255VnZ0aTg?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 84,
+                "title": "China's open-source models make up 30% of global AI usage, led by Qwen and DeepSeek - Yahoo Finance",
+                "source": "Yahoo Finance",
+                "category": "deepseek",
+                "date": "2025-12-17",
+                "time": "8일 전",
+                "importance": 7.0,
+                "description": "China's open-source models make up 30% of global AI usage, led by Qwen and DeepSeek  Yahoo Finance",
+                "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBDSU1EQ25JZ3BOTGROMGFDVy1jTlN1YTNmaTUtZjRnY29VVUVMZGxYa3VXdDZZSWFPX0w4UmNhVDdpVjdHT0VVUE5VLWw2TlpRc1ZYUWpIUVJ0RnFmMkNzUy1jWUZfZFFqdWRCRnVYTTMteFlWaFBCUTVVemdvaE0?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "DeepSeek",
+                        "AI"
+                ]
+        },
+        {
+                "id": 85,
+                "title": "Reinforcement learning with random rewards actually works with Qwen 2.5 - Interconnects | Nathan Lambert",
+                "source": "Interconnects | Nathan Lambert",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "203일 전",
+                "importance": 7.0,
+                "description": "Reinforcement learning with random rewards actually works with Qwen 2.5  Interconnects | Nathan Lambert",
+                "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5qM0htMkVzdV9sS3FyNlBndmRwZm1ZYXVzMy04REpvc3F4Q1RZbm5pc21pTm1jS25tcS1SMlYtb0RHQWFqR3dKa3pFemY1eXQwN0F5TE1nN3ZXQ29nTlljMi1sa01lc3B5cEZhMGk0WHBfRU0?oc=5",
+                "keywords": [
+                        "Qwen"
+                ]
+        },
+        {
+                "id": 87,
+                "title": "💪🏻AI Makes Alibaba Great Again - Recode China AI",
+                "source": "Recode China AI",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "57일 전",
+                "importance": 7.0,
+                "description": "💪🏻AI Makes Alibaba Great Again  Recode China AI",
+                "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTE0wYmZpMk1sS1hOdWVMdUd0U2I5UWt6QkNIR3ItVkQyc0h0QnRmRUJzc3lCU09UaTg0Q3kzM1ZCU3BHWWk4MFJtenJvNldkVTF1WnRMYllDRFA0Y21PN0ZEb0RSUHJIVUVBY1BHaHlrLS15OE0?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI"
+                ]
+        },
+        {
+                "id": 88,
+                "title": "Alibaba’s Qwen powers AI Singapore’s latest LLM to strengthen multilingual performance in Southeast Asia - TNGlobal",
+                "source": "TNGlobal",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "19일 전",
+                "importance": 7.0,
+                "description": "Alibaba’s Qwen powers AI Singapore’s latest LLM to strengthen multilingual performance in Southeast Asia  TNGlobal",
+                "link": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNSlNWQVlyUGxUYVY3aFdGQ1g5VmVFSHJzR3N5VzZQejlQcjhFTUJVN1RadnpIUGtoRFAtakU3NEFIWEo0YVY2YzU4N3NJZFpUeVFYZkJ6SDctNWt0cDRjX2d0bTV4NjViQWNTOXRaTmM4MFNtS0t5LUsyck14VFVXaU80VVdBVFFJNVNfN2drZTkyZmdubkpZbXY4YUo1dDkyWUx2MWl3WHdjRHNSYnNxWGZfZEVteEc3SFBZU2Q3WUtad3BZVERBbF9BQ2k2RXBvSWh4ZA?oc=5",
+                "keywords": [
+                        "Qwen",
+                        "AI",
+                        "LLM"
+                ]
+        },
+        {
+                "id": 89,
+                "title": "Integrate and Deploy Tongyi Qwen3 Models into Production Applications with NVIDIA - NVIDIA Developer",
+                "source": "NVIDIA Developer",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "228일 전",
+                "importance": 7.0,
+                "description": "Integrate and Deploy Tongyi Qwen3 Models into Production Applications with NVIDIA  NVIDIA Developer",
+                "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQM0lnMkloWnRaZ0N2ZHhMLVZJZ0NxT2luSzM2cTlIV1Q5V2ctektxLVZPUkNlVFdFNk9wUUZIRS13bkZtaXNDdlBycGhYWkE4aFFRYS10VDhVcC1ZOWxwYUl5S21OVXFnOXF3QnFLQTYySjJDR0xKbjZseDBHcW83UkNpTWRMcGdmbVZjTENUc3RWamVhVnJZR1BEQW9WaWJlZEZWT0VwREdmS1V5SHI3Q0I3eW9LcGs?oc=5",
+                "keywords": [
+                        "Qwen"
+                ]
+        },
+        {
+                "id": 92,
+                "title": "Thinking Machines Lab Makes Tinker Generally Available: Adds Kimi K2 Thinking And Qwen3-VL Vision Input - MarkTechPost",
+                "source": "MarkTechPost",
+                "category": "qwen",
+                "date": "2025-12-17",
+                "time": "1시간 전",
+                "importance": 7.0,
+                "description": "Thinking Machines Lab Makes Tinker Generally Available: Adds Kimi K2 Thinking And Qwen3-VL Vision Input  MarkTechPost",
+                "link": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNVHRQT1JNQURrTHFnNWUxRkVHeGxkU1FIcE1xUm95eVNQN3BGNTlfMV9MdVJYSWpBOHo0ZEVUQXg0MURxTGU0cTZsYlk2bXItc2xMNGUzZ1ZSM1lKYUR5X2lULXV6VVZDRHFwVm5id3NQTGxaM3kyQ1VBSlpKazJ3aUo3U0FHM0dSQ2JoWDg0N1JEa2FPQkotQ25Yel9BeUtmLXZHTjhFU2xSaVdxd0N5QThVVWd1MFBDYmlReHVWbmtPWWh5eHJKbVI4WG5peHFlTzNTcEg3M2JzWXfSAeABQVVfeXFMTzRWX3lTbVl4X19QajQ1d1ROVXhUSFVDdWFIR3hwNGtnUkh4ZkZqVkpiSkJDY25mZzZYV1lYVW52czlBc2tfd1pZdVJCWTJlR0lQTm95STZlNGhWdjRxTkw0QlVvSjIyR01jN0pnSk9PaXYybXAxV0NuYWNQMFRKU3VSNk9OUEhxMkpISzF5N3U0dW1sUXNydl9GNTdNcXptV1VqejcxQmg3SElRRnZ3THNNWUdxMWRxR2d0eXBzdmE3alFYSlRxR0t6d3VQdDRzOGhYbEg5Y2JRa3pMTDZDeWQ?oc=5",
+                "keywords": [
+                        "Kimi-K2",
+                        "Qwen",
+                        "Kimi"
+                ]
+        },
+        {
+                "id": 96,
+                "title": "Kimi K2 Thinking is the new leading open weights model - LinkedIn",
+                "source": "LinkedIn",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "39일 전",
+                "importance": 7.0,
+                "description": "Kimi K2 Thinking is the new leading open weights model  LinkedIn",
+                "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPX29xa3BpZDcwX1ZxMThZUTdWaDhWTDlpUkFoTUNWLXFTUVI2R3N6bG5NMDdqNlJGTDNsRnp4MTBEUVJ5ckFGbGs2S3FaWFprczh3NUpmY1JhZERNZ2tzWVkyUTV1bXM0b3BHU3ZjMXdmbUFfb2J2YkNqX2lJaHFqWTVhMm9JSTZkemtzU2U5QmRyQUR0bjhXaGdaRXBPTkM3d1pyZHVkZw?oc=5",
+                "keywords": [
+                        "Kimi-K2",
+                        "Kimi"
+                ]
+        },
+        {
+                "id": 97,
+                "title": "🤯Kimi K2 Thinking: The $4.6M Model Shifting AI Narratives - Recode China AI",
+                "source": "Recode China AI",
+                "category": "kimi",
+                "date": "2025-12-17",
+                "time": "36일 전",
+                "importance": 7.0,
+                "description": "🤯Kimi K2 Thinking: The $4.6M Model Shifting AI Narratives  Recode China AI",
+                "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQTG5XN3lpUXhMZDRnMWZ6bzBYUzlUU3lWdEYtaE1vbERMR2ptUFh5cEFHNG04YUl5MTJWajFJQ3hULXNOQk11SmdqaXJyMzJzLWZ1XzE3VEFGQWswSE9IR0lXZ0NxcThXalZBaFd0Z281SXYyangtLW5FclpBNWZoMWp3?oc=5",
+                "keywords": [
+                        "Kimi-K2",
+                        "Kimi",
+                        "AI"
+                ]
+        },
+        {
+                "id": 102,
+                "title": "Exclusive: GPT-5 demonstrates ability to do novel lab work - Axios",
+                "source": "Axios",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "12시간 전",
+                "importance": 7.0,
+                "description": "Exclusive: GPT-5 demonstrates ability to do novel lab work  Axios",
+                "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1oeXBwM0VPeGZoZk9wUGl0Tmp0NFBNS2tyRnRuZU1xVFVIVUVaR29YQ0MxMTJnWmMxRVVmYkEySUlvYXNlR2NSS0Z4aHNKUWRRWkVjWS1fYjNMczJCMnVONGF0ZFNEVWZpYjVGT2Nn?oc=5",
+                "keywords": [
+                        "OpenAI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 104,
+                "title": "I put GPT-5.2 through a 14-round test, and the AI model raised some serious questions - ZDNET",
+                "source": "ZDNET",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "I put GPT-5.2 through a 14-round test, and the AI model raised some serious questions  ZDNET",
+                "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQa2Eyam8ySUlCZUtlX0VqTzl1VTY3VEhkRUdWVEpkdEcxMDY2c0pOTnhveGhINk9iTkZfNzR6aHZOcFpvRWlpSEcxZXk1TDQwa2dFRUpfakhBeGhVejdmNFpOXzRSeFRURm9iUW9NZnJZSmZwc2hfVkk3N0VvMnJZTW1B?oc=5",
+                "keywords": [
+                        "OpenAI",
+                        "AI",
+                        "GPT"
+                ]
+        },
+        {
+                "id": 105,
+                "title": "Evaluating AI’s ability to perform scientific research tasks - OpenAI",
+                "source": "OpenAI",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "12시간 전",
+                "importance": 7.0,
+                "description": "Evaluating AI’s ability to perform scientific research tasks  OpenAI",
+                "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBGNFFkVzh4WEk1ZDFwSzFmblc5VWljNzg5SHFwQ2RwR3EyWGYxRVJJa1NQUFllZzZieXB1SVlXRFdCcDJvdTFoUE50RXBpSkVPVExz?oc=5",
+                "keywords": [
+                        "OpenAI",
+                        "AI"
+                ]
+        },
+        {
+                "id": 106,
+                "title": "Measuring AI’s capability to accelerate biological research in the wet lab - OpenAI",
+                "source": "OpenAI",
+                "category": "chatgpt",
+                "date": "2025-12-17",
+                "time": "1일 전",
+                "importance": 7.0,
+                "description": "Measuring AI’s capability to accelerate biological research in the wet lab  OpenAI",
+                "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE0zc3BmdUpqSUF4TkxpUUdfNEpCR3JnYjB6RnpIMXQ4SExJcGZoYUVhWDNHY3ViWW9uNnVIRGJtMDJVcHF1Rm1leklrYkx0ODBOX1UyOFhmdVhPYzRCelBmWGdkZ2FTR3JRRzRsZXlKeDlMU1lLR2tnanQ5RG9XZw?oc=5",
+                "keywords": [
+                        "OpenAI",
+                        "AI"
+                ]
+        }
+];
 
         const CATEGORIES = [
             { id: 'all', label: '전체 뉴스', icon: '✨', color: '#FF6B6B' },
