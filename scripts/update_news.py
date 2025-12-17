@@ -67,31 +67,38 @@ class AINewsUpdater:
         """실제 AI 뉴스 검색"""
         print("🔍 실제 AI 뉴스 검색 중...")
         
-        # 특정 AI 모델 중심 키워드
+        # 특정 AI 모델 중심 키워드 대폭 확장
         keywords = [
-            'ChatGPT OpenAI',
-            'Google Gemini AI',
-            'DeepSeek AI',
-            'Qwen Alibaba',
-            'Kimi Moonshot AI',
-            'ChatGPT news',
-            'Gemini update',
-            'DeepSeek model',
-            'Qwen LLM',
-            'Kimi-K2 thinking',
-            'OpenAI GPT',
-            'Google AI',
-            'DeepSeek V3',
-            'Qwen 2.5',
-            'Moonshot AI'
+            # ChatGPT / OpenAI
+            'ChatGPT', 'ChatGPT news', 'ChatGPT update', 'OpenAI', 'OpenAI GPT', 
+            'GPT-4', 'GPT-5', 'OpenAI announcement',
+            
+            # Google Gemini
+            'Google Gemini', 'Gemini AI', 'Gemini update', 'Google AI', 
+            'Bard AI', 'Google Gemini news',
+            
+            # DeepSeek
+            'DeepSeek', 'DeepSeek AI', 'DeepSeek V3', 'DeepSeek model',
+            'DeepSeek news',
+            
+            # Qwen
+            'Qwen', 'Qwen 2.5', 'Qwen AI', 'Alibaba Qwen', 'Qwen LLM',
+            
+            # Kimi
+            'Kimi AI', 'Kimi-K2', 'Moonshot AI', 'Kimi thinking',
+            
+            # 일반 AI 뉴스
+            'AI news', 'artificial intelligence news', 'AI breakthrough',
+            'LLM news', 'large language model', 'AI development',
+            'AI research', 'AI technology', 'AI innovation'
         ]
         
         for keyword in keywords:
             try:
                 print(f"  검색 중: {keyword}")
-                news = self.fetch_real_news(keyword, max_items=10)  # 키워드당 10개
+                news = self.fetch_real_news(keyword, max_items=5)  # 키워드당 5개
                 self.news_data.extend(news)
-                time.sleep(1)  # Rate limiting
+                time.sleep(0.5)  # Rate limiting 완화
             except Exception as e:
                 print(f"⚠️  {keyword} 검색 실패: {e}")
         
@@ -129,7 +136,7 @@ class AINewsUpdater:
         
         return self.news_data
     
-    def fetch_real_news(self, keyword, max_items=10):
+    def fetch_real_news(self, keyword, max_items=5):
         """실제 뉴스 검색 (Google News RSS 활용)"""
         news_items = []
         
@@ -142,7 +149,7 @@ class AINewsUpdater:
                 return news_items
             
             soup = BeautifulSoup(response.content, 'xml')
-            items = soup.find_all('item')[:max_items * 2]  # 필터링 고려해서 2배 수집
+            items = soup.find_all('item')[:max_items * 3]  # 필터링 고려해서 3배 수집
             
             for item in items:
                 try:
@@ -152,15 +159,15 @@ class AINewsUpdater:
                     description = item.description.text if item.description else ""
                     source = item.source.text if item.source else "News"
                     
-                    # 발행 날짜 파싱 및 2주 필터링
+                    # 발행 날짜 파싱 및 6개월 필터링
                     from email.utils import parsedate_to_datetime
                     try:
                         pub_datetime = parsedate_to_datetime(pub_date)
                         now = datetime.now(pub_datetime.tzinfo)
                         days_old = (now - pub_datetime).days
                         
-                        # 14일 이상 된 뉴스는 스킵
-                        if days_old > 14:
+                        # 180일(6개월) 이상 된 뉴스는 스킵
+                        if days_old > 180:
                             print(f"    ⏭️  오래된 뉴스 스킵: {days_old}일 전")
                             continue
                         
@@ -215,7 +222,7 @@ class AINewsUpdater:
                         break
                     
                     # 번역 API rate limit 방지
-                    time.sleep(0.5)
+                    time.sleep(0.3)  # 0.5초 → 0.3초로 단축
                     
                 except Exception as e:
                     print(f"    항목 처리 실패: {e}")
