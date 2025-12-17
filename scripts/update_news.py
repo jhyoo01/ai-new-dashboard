@@ -23,37 +23,44 @@ class AINewsUpdater:
     def __init__(self):
         self.news_data = []
         self.categories = {
-            'llm': ['ChatGPT', 'GPT', 'Claude', 'Gemini', 'LLM', 'OpenAI', 'Anthropic', '대형언어모델', 'Qwen', 'DeepSeek'],
-            'industry': ['AI 투자', 'AI 스타트업', '삼성', 'LG', 'NVIDIA', 'Google', 'AI 기업', '규제', 'AI법'],
-            'research': ['AI 연구', '논문', '알고리즘', 'MIT', 'Stanford', '머신러닝 연구'],
-            'ml_dl': ['머신러닝', '딥러닝', '신경망', 'Machine Learning', 'Deep Learning', '학습'],
-            'application': ['AI 활용', 'AI 서비스', '신약', '의료', '자율주행', '고객서비스']
+            'chatgpt': ['ChatGPT', 'GPT-4', 'GPT-5', 'OpenAI'],
+            'gemini': ['Gemini', 'Google AI', 'Bard'],
+            'deepseek': ['DeepSeek', 'DeepSeek-V3', 'DeepSeek AI'],
+            'qwen': ['Qwen', 'Qwen 2.5', 'Alibaba AI'],
+            'kimi': ['Kimi', 'Kimi-K2', 'Moonshot AI']
         }
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
+        self.target_sources = ['theverge.com', 'techcrunch.com']  # 주요 출처
     
     def search_ai_news(self):
         """실제 AI 뉴스 검색"""
         print("🔍 실제 AI 뉴스 검색 중...")
         
+        # 특정 AI 모델 중심 키워드
         keywords = [
-            'OpenAI latest news',
-            'Claude AI Anthropic',
+            'ChatGPT OpenAI',
             'Google Gemini AI',
-            'DeepSeek AI model',
-            'AI regulation news',
-            'ChatGPT updates',
-            'AI startup funding',
-            'AI research breakthrough',
-            'NVIDIA AI chip',
-            'LLM artificial intelligence'
+            'DeepSeek AI',
+            'Qwen Alibaba',
+            'Kimi Moonshot AI',
+            'ChatGPT news',
+            'Gemini update',
+            'DeepSeek model',
+            'Qwen LLM',
+            'Kimi-K2 thinking',
+            'OpenAI GPT',
+            'Google AI',
+            'DeepSeek V3',
+            'Qwen 2.5',
+            'Moonshot AI'
         ]
         
         for keyword in keywords:
             try:
                 print(f"  검색 중: {keyword}")
-                news = self.fetch_real_news(keyword)
+                news = self.fetch_real_news(keyword, max_items=10)  # 키워드당 10개
                 self.news_data.extend(news)
                 time.sleep(1)  # Rate limiting
             except Exception as e:
@@ -70,12 +77,12 @@ class AINewsUpdater:
         
         # 중요도순 정렬
         unique_news.sort(key=lambda x: x['importance'], reverse=True)
-        self.news_data = unique_news[:12]  # 최대 12개
+        self.news_data = unique_news[:100]  # 최대 100개
         
         print(f"✅ {len(self.news_data)}개 뉴스 수집 완료")
         return self.news_data
     
-    def fetch_real_news(self, keyword):
+    def fetch_real_news(self, keyword, max_items=10):
         """실제 뉴스 검색 (Google News RSS 활용)"""
         news_items = []
         
@@ -88,7 +95,7 @@ class AINewsUpdater:
                 return news_items
             
             soup = BeautifulSoup(response.content, 'xml')
-            items = soup.find_all('item')[:2]  # 키워드당 최대 2개
+            items = soup.find_all('item')[:max_items * 2]  # 필터링 고려해서 2배 수집
             
             for item in items:
                 try:
@@ -97,6 +104,10 @@ class AINewsUpdater:
                     pub_date = item.pubDate.text if item.pubDate else ""
                     description = item.description.text if item.description else ""
                     source = item.source.text if item.source else "News"
+                    
+                    # 출처 필터링 (theverge.com, techcrunch.com 우선)
+                    link_lower = link.lower()
+                    is_target_source = any(target in link_lower for target in self.target_sources)
                     
                     # 설명에서 HTML 태그 제거
                     description_clean = BeautifulSoup(description, 'html.parser').get_text()
@@ -108,8 +119,8 @@ class AINewsUpdater:
                     # 카테고리 분류
                     category = self.classify_category(title + " " + description_clean)
                     
-                    # 중요도 계산
-                    importance = self.calculate_importance(title, source)
+                    # 중요도 계산 (우선 출처에 가중치)
+                    importance = self.calculate_importance(title, source, is_target_source)
                     
                     # 키워드 추출
                     keywords_list = self.extract_keywords(title, keyword)
@@ -126,6 +137,10 @@ class AINewsUpdater:
                         'link': link,
                         'keywords': keywords_list
                     })
+                    
+                    # max_items 도달 시 중단
+                    if len(news_items) >= max_items:
+                        break
                     
                 except Exception as e:
                     print(f"    항목 처리 실패: {e}")
@@ -154,9 +169,13 @@ class AINewsUpdater:
         except:
             return "최근"
     
-    def calculate_importance(self, title, source):
+    def calculate_importance(self, title, source, is_target_source=False):
         """중요도 점수 계산"""
         score = 7.0
+        
+        # 우선 출처 가중치 (theverge.com, techcrunch.com)
+        if is_target_source:
+            score += 1.5
         
         # 제목 키워드 가중치
         high_impact = ['breakthrough', 'revolutionary', '획기적', 'launch', '출시', 'releases', 'unveils']
@@ -184,8 +203,8 @@ class AINewsUpdater:
         keywords = [base_keyword.split()[0]]  # 기본 키워드
         
         # 주요 키워드 리스트
-        important_words = ['OpenAI', 'ChatGPT', 'Claude', 'Anthropic', 'Google', 'Gemini', 
-                          'DeepSeek', 'AI', 'LLM', 'NVIDIA', 'GPT', 'Qwen']
+        important_words = ['ChatGPT', 'OpenAI', 'Gemini', 'Google', 'DeepSeek', 
+                          'Qwen', 'Kimi', 'Moonshot', 'AI', 'LLM', 'GPT']
         
         for word in important_words:
             if word.lower() in title.lower() and word not in keywords:
@@ -210,7 +229,7 @@ class AINewsUpdater:
         if scores:
             return max(scores.items(), key=lambda x: x[1])[0]
         
-        return 'llm'  # 기본값
+        return 'chatgpt'  # 기본값
     
     def generate_html(self):
         """업데이트된 HTML 생성"""
