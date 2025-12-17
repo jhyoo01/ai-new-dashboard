@@ -104,11 +104,29 @@ class AINewsUpdater:
                 seen.add(title_hash)
                 unique_news.append(item)
         
-        # 중요도순 정렬
-        unique_news.sort(key=lambda x: x['importance'], reverse=True)
+        # 정렬: 1) 우선 출처 우선, 2) 최신순
+        def sort_key(news):
+            # 우선 출처 확인
+            link = news.get('link', '').lower()
+            is_priority = any(source in link for source in self.target_sources)
+            
+            # 우선 출처는 0, 아니면 1 (낮은 숫자가 먼저)
+            priority = 0 if is_priority else 1
+            
+            # 날짜 (최신이 먼저) - pub_datetime을 역순으로
+            pub_datetime = news.get('pub_datetime', '2000-01-01')
+            
+            return (priority, pub_datetime)  # 우선순위 먼저, 그 다음 최신순 (역순은 reverse=True로)
+        
+        unique_news.sort(key=sort_key, reverse=True)  # reverse=True로 최신이 위로
         self.news_data = unique_news[:100]  # 최대 100개
         
         print(f"✅ {len(self.news_data)}개 뉴스 수집 완료")
+        
+        # 우선 출처 통계
+        priority_count = sum(1 for n in self.news_data if any(s in n.get('link', '').lower() for s in self.target_sources))
+        print(f"📰 우선 출처(TechCrunch/TheVerge): {priority_count}개")
+        
         return self.news_data
     
     def fetch_real_news(self, keyword, max_items=10):
@@ -134,6 +152,25 @@ class AINewsUpdater:
                     description = item.description.text if item.description else ""
                     source = item.source.text if item.source else "News"
                     
+                    # 발행 날짜 파싱 및 2주 필터링
+                    from email.utils import parsedate_to_datetime
+                    try:
+                        pub_datetime = parsedate_to_datetime(pub_date)
+                        now = datetime.now(pub_datetime.tzinfo)
+                        days_old = (now - pub_datetime).days
+                        
+                        # 14일 이상 된 뉴스는 스킵
+                        if days_old > 14:
+                            print(f"    ⏭️  오래된 뉴스 스킵: {days_old}일 전")
+                            continue
+                        
+                        # 실제 발행일 저장
+                        actual_date = pub_datetime.strftime('%Y-%m-%d')
+                    except:
+                        # 파싱 실패 시 오늘 날짜 사용
+                        actual_date = datetime.now().strftime('%Y-%m-%d')
+                        days_old = 0
+                    
                     # 출처 필터링 (theverge.com, techcrunch.com 우선)
                     link_lower = link.lower()
                     is_target_source = any(target in link_lower for target in self.target_sources)
@@ -155,7 +192,7 @@ class AINewsUpdater:
                     keywords_list = self.extract_keywords(title, keyword)
                     
                     # 한글 번역
-                    print(f"    번역 중: {title[:50]}...")
+                    print(f"    번역 중: {title[:50]}... ({days_old}일 전)")
                     title_ko = self.translate_to_korean(title)
                     description_ko = self.translate_to_korean(description_clean) if description_clean else f"{title_ko}에 대한 최신 소식입니다."
                     
@@ -164,12 +201,13 @@ class AINewsUpdater:
                         'title': title_ko,  # 한글 제목
                         'source': source,
                         'category': category,
-                        'date': datetime.now().strftime('%Y-%m-%d'),
+                        'date': actual_date,  # 실제 발행일
                         'time': time_ago,
                         'importance': importance,
                         'description': description_ko,  # 한글 설명
                         'link': link,
-                        'keywords': keywords_list
+                        'keywords': keywords_list,
+                        'pub_datetime': pub_datetime.isoformat() if 'pub_datetime' in locals() else datetime.now().isoformat()  # 정렬용
                     })
                     
                     # max_items 도달 시 중단
