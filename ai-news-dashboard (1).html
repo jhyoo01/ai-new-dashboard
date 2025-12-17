@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글비 AI 리포트👍 - 2025년 12월 17일</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,900&family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: #F8F9FA;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: #1A1A1A;
+            border-bottom: 4px solid #FF6B6B;
+            padding: 2rem 3rem;
+            color: #fff;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            font-style: italic;
+        }
+
+        .header-subtitle {
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            opacity: 0.7;
+            letter-spacing: 1px;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .header-stats {
+            text-align: right;
+        }
+
+        .header-stats-count {
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .header-stats-label {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 0.25rem;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.875rem 1rem 0.875rem 3rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            background: rgba(255,255,255,0.15);
+            border-color: #FF6B6B;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.5;
+        }
+
+        .sort-select {
+            padding: 0.875rem 3rem 0.875rem 1rem;
+            border: 2px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            cursor: pointer;
+            outline: none;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='white' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+        }
+
+        .sort-select option {
+            background: #1A1A1A;
+        }
+
+        .nav {
+            background: #fff;
+            border-bottom: 1px solid #E0E0E0;
+            padding: 1rem 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+        }
+
+        .category-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
+            background: transparent;
+            color: #333;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: 'Source Sans Pro', sans-serif;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .category-btn.active {
+            border-color: var(--cat-color);
+            background: var(--cat-color-light);
+            color: var(--cat-color);
+        }
+
+        .category-btn:hover {
+            background: var(--cat-color-light);
+            border-color: var(--cat-color);
+        }
+
+        .category-badge {
+            background: var(--cat-color);
+            color: #fff;
+            padding: 0.125rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .main-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .news-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .news-article {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #E0E0E0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: slideUp 0.5s ease-out both;
+        }
+
+        .news-article:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .article-badges {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #fff;
+        }
+
+        .badge-breaking { background: #FF4757; }
+        .badge-hot { background: #FFA502; }
+        .badge-trending { background: #FFD93D; }
+        .badge-new { background: #6BCF7F; }
+
+        .badge-category {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .article-time {
+            color: #999;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .importance-score {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .importance-score span {
+            font-size: 1.25rem;
+            font-weight: 900;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .article-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            line-height: 1.3;
+            color: #1A1A1A;
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: #666;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .article-meta-source {
+            font-weight: 600;
+        }
+
+        .article-description {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #444;
+            margin: 0 0 1rem 0;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .article-keywords {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .keyword-tag {
+            background: #F0F0F0;
+            color: #666;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .article-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: inherit;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            transition: transform 0.2s ease;
+        }
+
+        .article-link:hover {
+            transform: translateX(4px);
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .stats-card {
+            background: #1A1A1A;
+            color: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .stats-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .stat-item-label {
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .stat-item-value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .sources-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid #E0E0E0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .sources-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 1.5rem 0;
+        }
+
+        .source-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .source-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: #F8F9FA;
+            border-radius: 8px;
+            transition: transform 0.2s ease;
+        }
+
+        .source-item:hover {
+            transform: translateX(4px);
+        }
+
+        .source-name {
+            font-weight: 600;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .source-count {
+            background: #1A1A1A;
+            color: #fff;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #fff;
+            border-radius: 12px;
+            border: 2px dashed #E0E0E0;
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            color: #666;
+            margin: 1rem 0 0.5rem 0;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .no-results p {
+            color: #999;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-top">
+                <div>
+                    <h1>글비 AI 리포트👍</h1>
+                    <p class="header-subtitle">당신의 일일 AI 인텔리전스 리포트 • <span id="current-date"></span></p>
+                </div>
+                <div class="header-stats">
+                    <div class="header-stats-count"><span id="article-count">12</span>개 기사</div>
+                </div>
+            </div>
+
+            <div class="search-bar">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="search-input" class="search-input" placeholder="기사 검색, 키워드...">
+                </div>
+                <select id="sort-select" class="sort-select">
+                    <option value="time" selected>정렬: 최신순</option>
+                    <option value="importance">정렬: 중요도순</option>
+                    <option value="source">정렬: 출처별</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav">
+        <div class="nav-content" id="category-nav"></div>
+    </nav>
+
+    <main class="main-content">
+        <div class="news-feed" id="news-feed"></div>
+        
+        <aside class="sidebar">
+            <div class="stats-card">
+                <h3>오늘의 인사이트</h3>
+                <div class="stats-list">
+                    <div>
+                        <div class="stat-item-label">전체 기사</div>
+                        <div class="stat-item-value" id="stat-total">12</div>
+                    </div>
+                    <div>
+                        <div class="stat-item-label">속보 뉴스</div>
+                        <div class="stat-item-value" style="color: #FF4757;" id="stat-breaking">4</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sources-card">
+                <h3>주요 출처</h3>
+                <div class="source-list" id="source-list"></div>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+        // 뉴스 데이터
+        const NEWS_DATA = [
+            {
+                id: 1,
+                title: 'OpenAI GPT-5.5, 멀티모달 추론 능력 획기적 개선',
+                source: 'TechCrunch',
+                category: 'llm',
+                date: '2025-12-17',
+                time: '2시간 전',
+                importance: 9.5,
+                description: 'OpenAI가 GPT-5.5를 공개하며, 이미지-텍스트-음성을 동시에 처리하는 진정한 멀티모달 추론 능력을 선보였습니다.',
+                link: '#',
+                keywords: ['GPT-5.5', 'OpenAI', '멀티모달']
+            },
+            {
+                id: 2,
+                title: 'DeepSeek R2, 오픈소스로 Claude 수준 달성',
+                source: '중앙일보',
+                category: 'research',
+                date: '2025-12-17',
+                time: '3시간 전',
+                importance: 9.2,
+                description: '중국 DeepSeek의 R2 모델이 완전 오픈소스임에도 Claude Sonnet 4급 성능을 보이며 업계에 충격을 주고 있습니다.',
+                link: '#',
+                keywords: ['DeepSeek', 'R2', '오픈소스']
+            },
+            {
+                id: 3,
+                title: 'Google Gemini 3.0, 실시간 비디오 이해 가능',
+                source: 'The Verge',
+                category: 'llm',
+                date: '2025-12-17',
+                time: '4시간 전',
+                importance: 8.8,
+                description: 'Google이 Gemini 3.0을 출시하며 실시간 비디오 스트림을 이해하고 대화하는 혁신적 기능을 공개했습니다.',
+                link: '#',
+                keywords: ['Gemini', 'Google', '비디오']
+            },
+            {
+                id: 4,
+                title: 'Anthropic Claude 4.5, 수학 올림피아드 금메달 수준',
+                source: 'Ars Technica',
+                category: 'llm',
+                date: '2025-12-17',
+                time: '5시간 전',
+                importance: 8.5,
+                description: 'Claude 4.5가 국제수학올림피아드(IMO) 수준의 문제를 풀어내며 수학적 추론 능력의 새 장을 열었습니다.',
+                link: '#',
+                keywords: ['Claude', 'Anthropic', '수학']
+            },
+            {
+                id: 5,
+                title: 'AI 에이전트, 전 세계 사무직 업무의 40% 자동화',
+                source: 'MIT Technology Review',
+                category: 'research',
+                date: '2025-12-17',
+                time: '6시간 전',
+                importance: 9.0,
+                description: '2025년 말 기준, AI 에이전트가 사무직 업무의 40%를 자율적으로 처리하며 노동 시장에 큰 변화를 일으키고 있습니다.',
+                link: '#',
+                keywords: ['AI 에이전트', '자동화', '노동시장']
+            },
+            {
+                id: 6,
+                title: 'Qwen 3.0, 한중일 언어 통합 모델로 주목',
+                source: '조선일보',
+                category: 'llm',
+                date: '2025-12-17',
+                time: '7시간 전',
+                importance: 7.8,
+                description: '알리바바의 Qwen 3.0이 한국어, 중국어, 일본어를 동등하게 처리하는 최초의 동아시아 특화 모델로 출시되었습니다.',
+                link: '#',
+                keywords: ['Qwen', 'Alibaba', '한중일']
+            },
+            {
+                id: 7,
+                title: '한국 AI 기본법 시행 1년, 스타트업 폭발적 성장',
+                source: 'Bloomberg',
+                category: 'industry',
+                date: '2025-12-17',
+                time: '8시간 전',
+                importance: 8.9,
+                description: '한국의 AI 기본법 시행 후 1년간 AI 스타트업 투자가 300% 증가하며 글로벌 AI 강국으로 부상하고 있습니다.',
+                link: '#',
+                keywords: ['한국', 'AI 기본법', '스타트업']
+            },
+            {
+                id: 8,
+                title: 'LG, 자체 LLM "엑사원" 상용화 성공',
+                source: '매일경제',
+                category: 'industry',
+                date: '2025-12-17',
+                time: '10시간 전',
+                importance: 8.7,
+                description: 'LG전자가 개발한 "엑사원" LLM이 가전제품과 완벽 통합되며 한국 기업 최초로 상용 LLM 시장에 진출했습니다.',
+                link: '#',
+                keywords: ['LG', '엑사원', 'LLM']
+            },
+            {
+                id: 9,
+                title: 'ChatGPT Pro, 월 3만원으로 무제한 사용 가능',
+                source: 'Forbes',
+                category: 'industry',
+                date: '2025-12-17',
+                time: '12시간 전',
+                importance: 8.3,
+                description: 'OpenAI가 ChatGPT Pro 요금제를 인하하며 월 3만원에 GPT-5.5를 무제한 사용할 수 있게 되었습니다.',
+                link: '#',
+                keywords: ['ChatGPT', '요금', 'Pro']
+            },
+            {
+                id: 10,
+                title: 'Kimi K3, 100만 토큰 컨텍스트 돌파',
+                source: 'VentureBeat',
+                category: 'llm',
+                date: '2025-12-17',
+                time: '14시간 전',
+                importance: 8.0,
+                description: 'Moonshot AI의 Kimi K3가 100만 토큰 컨텍스트를 지원하며 책 한 권을 통째로 분석할 수 있게 되었습니다.',
+                link: '#',
+                keywords: ['kimi-k2-thinking', 'Moonshot AI', '컨텍스트']
+            },
+            {
+                id: 11,
+                title: 'NVIDIA, AI 칩 시장 점유율 95% 기록',
+                source: 'Reuters',
+                category: 'industry',
+                date: '2025-12-16',
+                time: '1일 전',
+                importance: 8.2,
+                description: 'NVIDIA가 B100 칩 출시로 AI 칩 시장을 거의 독점하며 사상 최대 실적을 달성했습니다.',
+                link: '#',
+                keywords: ['NVIDIA', 'B100', 'AI칩']
+            },
+            {
+                id: 12,
+                title: 'AI 신약, 임상 3상 첫 통과로 제약업계 혁명',
+                source: 'Nature',
+                category: 'application',
+                date: '2025-12-16',
+                time: '1일 전',
+                importance: 9.1,
+                description: 'AI가 설계한 신약이 인류 역사상 처음으로 임상 3상을 통과하며 신약 개발의 패러다임이 완전히 바뀌고 있습니다.',
+                link: '#',
+                keywords: ['신약개발', 'AI', '임상시험']
+            }
+        ];
+
+        const CATEGORIES = [
+            { id: 'all', label: '전체 뉴스', icon: '✨', color: '#FF6B6B' },
+            { id: 'chatgpt', label: 'ChatGPT', icon: '🤖', color: '#4ECDC4' },
+            { id: 'gemini', label: 'Gemini', icon: '💎', color: '#95E1D3' },
+            { id: 'deepseek', label: 'DeepSeek', icon: '🔍', color: '#FFE66D' },
+            { id: 'qwen', label: 'Qwen', icon: '🐉', color: '#FF6B9D' },
+            { id: 'kimi', label: 'Kimi-K2', icon: '🌙', color: '#A8E6CF' }
+        ];
+
+        let currentCategory = 'all';
+        let currentSort = 'time';  // 기본: 최신순
+        let searchQuery = '';
+
+        // 날짜 설정
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString('ko-KR', options);
+
+        // 카테고리 네비게이션 렌더링
+        function renderCategories() {
+            const nav = document.getElementById('category-nav');
+            
+            // 카테고리별 뉴스 개수 계산
+            const categoryCounts = {};
+            CATEGORIES.forEach(cat => {
+                if (cat.id === 'all') {
+                    categoryCounts[cat.id] = 10; // Top 10
+                } else {
+                    categoryCounts[cat.id] = NEWS_DATA.filter(n => n.category === cat.id).length;
+                }
+            });
+            
+            nav.innerHTML = CATEGORIES.map(cat => `
+                <button 
+                    class="category-btn ${currentCategory === cat.id ? 'active' : ''}"
+                    style="--cat-color: ${cat.color}; --cat-color-light: ${cat.color}15;"
+                    onclick="filterByCategory('${cat.id}')"
+                >
+                    <span>${cat.icon}</span>
+                    ${cat.label}
+                    <span class="category-badge" style="background: ${cat.color}">${categoryCounts[cat.id] || 0}</span>
+                </button>
+            `).join('');
+        }
+
+        // 중요도 배지 가져오기
+        function getImportanceBadge(score) {
+            if (score >= 9) return { label: '속보', class: 'badge-breaking' };
+            if (score >= 8) return { label: '핫이슈', class: 'badge-hot' };
+            if (score >= 7) return { label: '트렌딩', class: 'badge-trending' };
+            return { label: '새소식', class: 'badge-new' };
+        }
+
+        // 카테고리 색상 가져오기
+        function getCategoryColor(category) {
+            return CATEGORIES.find(c => c.id === category)?.color || '#999';
+        }
+
+        // 뉴스 필터링 및 정렬
+        function getFilteredNews() {
+            let filtered = NEWS_DATA;
+
+            // 카테고리 필터
+            if (currentCategory !== 'all') {
+                // category 필드로 직접 필터링
+                filtered = filtered.filter(n => n.category === currentCategory);
+            } else {
+                // 전체 뉴스는 중요도순 Top 10만
+                filtered = [...filtered].sort((a, b) => b.importance - a.importance).slice(0, 10);
+            }
+
+            // 검색 필터
+            if (searchQuery) {
+                filtered = filtered.filter(n =>
+                    n.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    n.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                    n.keywords.some(k => k.toLowerCase().includes(searchQuery.toLowerCase()))
+                );
+            }
+
+            // 정렬 (전체 뉴스가 아닐 때만)
+            if (currentCategory !== 'all') {
+                filtered.sort((a, b) => {
+                    if (currentSort === 'importance') return b.importance - a.importance;
+                    if (currentSort === 'time') return new Date(b.pub_datetime || b.date) - new Date(a.pub_datetime || a.date);
+                    if (currentSort === 'source') return a.source.localeCompare(b.source);
+                    return 0;
+                });
+            }
+
+            return filtered;
+        }
+
+        // 뉴스 피드 렌더링
+        function renderNews() {
+            const feed = document.getElementById('news-feed');
+            const filtered = getFilteredNews();
+
+            document.getElementById('article-count').textContent = filtered.length;
+
+            if (filtered.length === 0) {
+                feed.innerHTML = `
+                    <div class="no-results">
+                        <span style="font-size: 3rem;">🔍</span>
+                        <h3>검색 결과가 없습니다</h3>
+                        <p>필터나 검색어를 조정해보세요</p>
+                    </div>
+                `;
+                return;
+            }
+
+            feed.innerHTML = filtered.map((article, idx) => {
+                const badge = getImportanceBadge(article.importance);
+                const color = getCategoryColor(article.category);
+
+                return `
+                    <article class="news-article" style="animation-delay: ${idx * 0.05}s">
+                        <div class="article-header">
+                            <div class="article-badges">
+                                <span class="badge ${badge.class}">${badge.label}</span>
+                                <span class="badge badge-category" style="background: ${color}">${article.category.toUpperCase()}</span>
+                                <span class="article-time">🕐 ${article.time}</span>
+                            </div>
+                            <div class="importance-score" style="background: ${color}15;">
+                                <span style="color: ${color}">📈</span>
+                                <span style="color: ${color}">${article.importance.toFixed(1)}</span>
+                            </div>
+                        </div>
+
+                        <h2 class="article-title">${article.title}</h2>
+
+                        <div class="article-meta">
+                            <span class="article-meta-source">${article.source}</span>
+                            <span>•</span>
+                            <span>${article.date}</span>
+                        </div>
+
+                        <p class="article-description">${article.description}</p>
+
+                        <div class="article-footer">
+                            <div class="article-keywords">
+                                ${article.keywords.map(k => `<span class="keyword-tag">#${k}</span>`).join('')}
+                            </div>
+                            <a href="${article.link}" class="article-link" style="color: ${color}">
+                                전체 기사 읽기 →
+                            </a>
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // 통계 렌더링
+        function renderStats() {
+            const filtered = getFilteredNews();
+            document.getElementById('stat-total').textContent = filtered.length;
+            document.getElementById('stat-breaking').textContent = filtered.filter(n => n.importance >= 9).length;
+        }
+
+        // 소스 렌더링
+        function renderSources() {
+            const sources = {};
+            NEWS_DATA.forEach(n => {
+                sources[n.source] = (sources[n.source] || 0) + 1;
+            });
+
+            const sorted = Object.entries(sources).sort((a, b) => b[1] - a[1]).slice(0, 5);
+            
+            document.getElementById('source-list').innerHTML = sorted.map(([source, count]) => `
+                <div class="source-item">
+                    <span class="source-name">${source}</span>
+                    <span class="source-count">${count}</span>
+                </div>
+            `).join('');
+        }
+
+        // 필터 함수들
+        function filterByCategory(category) {
+            currentCategory = category;
+            renderCategories();
+            renderNews();
+            renderStats();
+        }
+
+        // 이벤트 리스너
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderNews();
+            renderStats();
+        });
+
+        document.getElementById('sort-select').addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            renderNews();
+        });
+
+        // 초기 렌더링
+        renderCategories();
+        renderNews();
+        renderStats();
+        renderSources();
+    </script>
+</body>
+</html>
