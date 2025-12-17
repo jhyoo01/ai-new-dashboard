@@ -21,7 +21,7 @@ jobs:
       
       - name: Install dependencies
         run: |
-          pip install requests beautifulsoup4 pandas --break-system-packages
+          pip install requests beautifulsoup4 pandas lxml --break-system-packages
       
       - name: Run AI News Crawler
         run: |
