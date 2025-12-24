@@ -1,0 +1,35 @@
+name: Daily BigTech News Update
+
+on:
+  schedule:
+    # 매일 오전 9시 (한국시간 기준, UTC+9 = UTC 0시)
+    - cron: '0 0 * * *'
+  workflow_dispatch:  # 수동 실행도 가능
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 lxml --break-system-packages
+      
+      - name: Run BigTech News Crawler
+        run: |
+          python scripts/update_news.py
+      
+      - name: Commit and push if changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add bigtech_data_latest.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update: BigTech News $(date +'%Y-%m-%d %H:%M')" && git push)
